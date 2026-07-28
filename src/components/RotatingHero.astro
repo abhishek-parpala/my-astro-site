@@ -1,0 +1,205 @@
+---
+// RotatingHero.astro
+// Hero section with a static line + a rotating "badge" underneath that
+// cycles through a list of items (logo + name) using a slide/fade transition.
+
+export interface Props {
+  eyebrowText?: string;
+  subheading?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  platforms?: { name: string; icon?: string }[];
+  intervalMs?: number;
+}
+
+const {
+  eyebrowText = "Get Your Brand Recommended by",
+  subheading = "We help your business stand out across AI platforms — turning AI visibility into traffic.",
+  primaryCta = { label: "Start Free Trial →", href: "/trial" },
+  secondaryCta = { label: "Book a Demo", href: "/demo" },
+  platforms = [
+    { name: "ChatGPT", icon: "/icons/chatgpt.svg" },
+    { name: "Google AI Overviews", icon: "/icons/google-ai.svg" },
+    { name: "Microsoft Copilot", icon: "/icons/copilot.svg" },
+    { name: "Grok", icon: "/icons/grok.svg" },
+    { name: "Meta AI", icon: "/icons/meta-ai.svg" },
+    { name: "Perplexity", icon: "/icons/perplexity.svg" },
+  ],
+  intervalMs = 2200,
+} = Astro.props;
+---
+
+<section class="hero">
+  <h1 class="hero-heading">
+    <span class="eyebrow">{eyebrowText}</span>
+
+    <span class="rotator" id="platform-rotator" style={`--rotator-count:${platforms.length}`}>
+      {platforms.map((p, i) => (
+        <span class:list={["rotator-item", i === 0 && "is-active"]} data-index={i}>
+          {p.icon && <img src={p.icon} alt="" class="rotator-icon" />}
+          <span>{p.name}</span>
+        </span>
+      ))}
+    </span>
+  </h1>
+
+  <p class="hero-sub">{subheading}</p>
+
+  <div class="hero-cta">
+    <a href={primaryCta.href} class="btn btn-primary">{primaryCta.label}</a>
+    <a href={secondaryCta.href} class="btn btn-secondary">{secondaryCta.label}</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .eyebrow {
+    display: block;
+  }
+
+  /* --- Rotator --- */
+  .rotator {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.3em;
+    min-width: 260px;
+    overflow: hidden;
+  }
+
+  .rotator-item {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    color: var(--rotator-color, #6d5efc);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .rotator-item.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* item that is currently leaving upward */
+  .rotator-item.is-leaving {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  .rotator-icon {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #5b5b66;
+    max-width: 620px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: #6d5efc;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(109, 94, 252, 0.35);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #1a1a1f;
+    border: 1px solid #d9d9e3;
+  }
+</style>
+
+<script>
+  // Cycles through .rotator-item elements: current item slides up + fades
+  // out while the next one slides up from below + fades in.
+  function initRotator(root: HTMLElement) {
+    const items = Array.from(root.querySelectorAll<HTMLElement>(".rotator-item"));
+    if (items.length < 2) return;
+
+    let current = items.findIndex((el) => el.classList.contains("is-active"));
+    if (current === -1) current = 0;
+
+    const intervalMs = 2200;
+
+    setInterval(() => {
+      const next = (current + 1) % items.length;
+
+      const currentEl = items[current];
+      const nextEl = items[next];
+
+      // Send the current item out the top.
+      currentEl.classList.remove("is-active");
+      currentEl.classList.add("is-leaving");
+
+      // Prime the next item just below the visible area, then activate it
+      // on the next frame so the transition actually runs.
+      nextEl.style.transition = "none";
+      nextEl.style.transform = "translateY(100%)";
+      nextEl.style.opacity = "0";
+      // Force reflow so the "none" transition + reset styles are applied
+      // before we re-enable the transition.
+      void nextEl.offsetHeight;
+      nextEl.style.transition = "";
+
+      requestAnimationFrame(() => {
+        nextEl.classList.add("is-active");
+      });
+
+      // Clean up the item that left so it's ready to be reused next lap.
+      setTimeout(() => {
+        currentEl.classList.remove("is-leaving");
+        currentEl.style.transform = "";
+        currentEl.style.opacity = "";
+      }, 500);
+
+      current = next;
+    }, intervalMs);
+  }
+
+  const rotator = document.getElementById("platform-rotator");
+  if (rotator) initRotator(rotator);
+</script>

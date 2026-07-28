@@ -6,6 +6,10 @@ import Layout from '../layouts/Layout.astro';
   title="Abhishek Parpala | AI Search Strategist"
   description="Helping SaaS and ecommerce brands get recommended by AI search platforms through authentic off-page authority building."
 >
+  <!-- This page builds its own hero below, so we cancel Layout's default
+       RotatingHero fallback by filling the "hero" slot with nothing. -->
+  <Fragment slot="hero"></Fragment>
+
   <header class="navbar">
     <div class="nav-container">
       <div class="logo">
@@ -40,9 +44,29 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="hero-visual">
-        <div class="platform-badge">ChatGPT</div>
-        <div class="platform-badge">Perplexity</div>
-        <div class="platform-badge">Google AI Overviews</div>
+        <span class="hero-visual-label">Get Your Brand Recommended by</span>
+        <div class="platform-rotator" id="platform-rotator">
+          <div class="platform-badge is-active" data-index="0">
+            <span class="badge-icon" aria-hidden="true"><img src="/icons/chatgpt.png" alt="" /></span>
+            <span>ChatGPT</span>
+          </div>
+          <div class="platform-badge" data-index="1">
+            <span class="badge-icon" aria-hidden="true"><img src="/icons/perplexity.png" alt="" /></span>
+            <span>Perplexity</span>
+          </div>
+          <div class="platform-badge" data-index="2">
+            <span class="badge-icon" aria-hidden="true"><img src="/icons/google-ai-overviews.png" alt="" /></span>
+            <span>Google AI Overviews</span>
+          </div>
+          <div class="platform-badge" data-index="3">
+            <span class="badge-icon" aria-hidden="true"><img src="/icons/claude.png" alt="" /></span>
+            <span>Claude</span>
+          </div>
+          <div class="platform-badge" data-index="4">
+            <span class="badge-icon" aria-hidden="true"><img src="/icons/gemini.png" alt="" /></span>
+            <span>Gemini</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -70,22 +94,41 @@ import Layout from '../layouts/Layout.astro';
       <h2>Strategic Solutions for <span class="highlight">AI Visibility</span> & Growth.</h2>
       <div class="service-grid">
         <div class="service-card">
-          <div class="service-icon">🔍</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
+              <path d="M20 20 L16.2 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
           <h3>AI Search Optimization (GEO & AEO)</h3>
           <p>Optimize your brand to get cited in ChatGPT, Perplexity and Google AI Overviews.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">💬</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
+          </div>
           <h3>Reddit Marketing</h3>
           <p>Build real engagement that drives brand visibility, traffic and earns trust.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">🔗</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 15 L15 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M11 7 L13.5 4.5a3.5 3.5 0 0 1 5 5L16 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M13 17 L10.5 19.5a3.5 3.5 0 0 1-5-5L8 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
           <h3>Off-Page Authority & Citations</h3>
           <p>Earn high-quality backlinks, mentions and citations from trusted websites.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">📈</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
           <h3>AI Search Monitoring & Reporting</h3>
           <p>Track your brand's visibility on AI platforms with custom reports and dashboards.</p>
         </div>
@@ -97,25 +140,46 @@ import Layout from '../layouts/Layout.astro';
       <h2>A Data-Driven Process That Gets Results.</h2>
       <div class="process-grid">
         <div class="process-step">
-          <div class="step-icon">🔍</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
+              <path d="M20 20 L16.2 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
           <span class="step-number">01</span>
           <h3>Research & Audit</h3>
           <p>I analyze your brand, competitors and AI search landscape.</p>
         </div>
         <div class="process-step">
-          <div class="step-icon">🎯</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+            </svg>
+          </div>
           <span class="step-number">02</span>
           <h3>Strategy & Roadmap</h3>
           <p>Custom GEO/AEO & Reddit strategy tailored for your brand and goals.</p>
         </div>
         <div class="process-step">
-          <div class="step-icon">🚀</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 3 C9 4 6.5 7 5.5 11.5 L8 14 L10.5 16.5 C15 15.5 18 13 19 9 C19.7 6.3 19.4 4.6 19 3 C17.4 2.6 15.7 2.3 13 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              <circle cx="14.5" cy="7.5" r="1.4" stroke="currentColor" stroke-width="1.4" />
+              <path d="M8 14 L5 17 M10.5 16.5 L7.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
           <span class="step-number">03</span>
           <h3>Implementation</h3>
           <p>I execute the plan — Reddit engagement, outreach, content & citations.</p>
         </div>
         <div class="process-step">
-          <div class="step-icon">📊</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
           <span class="step-number">04</span>
           <h3>Monitor & Scale</h3>
           <p>Track results, measure impact and scale what works for long-term growth.</p>
@@ -304,14 +368,16 @@ import Layout from '../layouts/Layout.astro';
 
   .eyebrow {
     color: #4b3cf0;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
   }
 
   .hero h1 {
-    font-size: 2.4rem;
-    line-height: 1.3;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
     margin: 0.8rem 0 1.2rem;
   }
 
@@ -355,16 +421,67 @@ import Layout from '../layouts/Layout.astro';
     min-width: 240px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.8rem;
   }
 
+  .hero-visual-label {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #333;
+  }
+
+  /* --- Rotating platform badge (true crossfade, never blank) --- */
+  .platform-rotator {
+    position: relative;
+    width: 100%;
+    height: 3.6rem; /* matches a single badge's rendered height */
+    border-radius: 12px;
+  }
+
   .platform-badge {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     background: white;
     border: 1px solid #eee;
     border-radius: 12px;
     padding: 1rem 1.2rem;
     font-weight: 600;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    color: #1a1a2e;
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+    /* Both the outgoing and incoming badge animate on this same
+       duration at the same time, so their opacities overlap in the
+       middle instead of both hitting 0 together. */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .platform-badge.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .badge-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .stats {
@@ -412,8 +529,20 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .service-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(75, 60, 240, 0.08);
+    color: #4b3cf0;
+  }
+
+  .service-icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
   }
 
   .service-card h3 {
@@ -448,8 +577,20 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .step-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0 auto 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(75, 60, 240, 0.08);
+    color: #4b3cf0;
+  }
+
+  .step-icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
   }
 
   .step-number {
@@ -620,3 +761,38 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
+<script>
+  function initPlatformRotator(root: HTMLElement) {
+    // Guard against double-init (Astro/Vite HMR reconnects in dev mode
+    // can otherwise attach this twice, desyncing the rotation).
+    if (root.dataset.rotatorInit === "true") return;
+    root.dataset.rotatorInit = "true";
+
+    const items = Array.from(root.querySelectorAll<HTMLElement>(".platform-badge"));
+    if (items.length < 2) return;
+
+    let current = items.findIndex((el) => el.classList.contains("is-active"));
+    if (current === -1) current = 0;
+
+    const DISPLAY_MS = 3000; // how long each badge stays fully visible before crossfading
+
+    function tick() {
+      const next = (current + 1) % items.length;
+
+      // Swapping both classes in the same tick means the outgoing badge's
+      // fade-out and the incoming badge's fade-in run concurrently on the
+      // same 0.5s transition — a real crossfade, so there's never a moment
+      // where every badge is at opacity 0.
+      items[current].classList.remove("is-active");
+      items[next].classList.add("is-active");
+
+      current = next;
+    }
+
+    setInterval(tick, DISPLAY_MS);
+  }
+
+  const rotator = document.getElementById("platform-rotator");
+  if (rotator) initPlatformRotator(rotator);
+</script>
