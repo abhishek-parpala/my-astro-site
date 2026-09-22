@@ -1,0 +1,385 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    number: '01',
+    title: 'AI Search Visibility',
+    description:
+      'Understand how your brand appears across AI-powered search experiences and identify the opportunities you’re missing.',
+    items: [
+      'AI search visibility tracking',
+      'Brand mention monitoring',
+      'Query-level visibility analysis',
+      'Competitive visibility analysis',
+    ],
+  },
+  {
+    number: '02',
+    title: 'LLM & AI Search Gap Analysis',
+    description:
+      'Find the gaps between what your customers ask AI systems and how your brand currently appears in those answers.',
+    items: [
+      'Buyer-question research',
+      'Competitor comparison',
+      'Content gap analysis',
+      'Citation opportunity identification',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Entity & Citation Building',
+    description:
+      'Strengthen your brand’s presence across the web so search engines and AI systems have more useful information to understand and reference.',
+    items: [
+      'Relevant brand mentions',
+      'Editorial placements',
+      'Entity signals',
+      'Citation opportunities',
+    ],
+  },
+  {
+    number: '04',
+    title: 'SEO & Content Strategy',
+    description:
+      'Build the organic search foundation that supports long-term visibility across Google and AI-powered search.',
+    items: [
+      'Keyword and topic research',
+      'Search-intent analysis',
+      'Content strategy',
+      'On-page SEO',
+      'Internal linking',
+    ],
+  },
+];
+
+const process = [
+  ['01', 'Understand', 'Understand your business, audience, competitors, and search landscape.'],
+  ['02', 'Analyze', 'Identify visibility gaps across Google and AI search.'],
+  ['03', 'Build', 'Create the content, authority, and entity signals needed to improve visibility.'],
+  ['04', 'Measure', 'Track changes in organic and AI search visibility and refine the strategy.'],
+];
+---
+
+<Layout
+  title="Services | Abhishek Parpala"
+  description="SEO and AI Search services for B2B SaaS and service businesses, including AI search visibility, GEO, content strategy, and authority building."
+>
+  <Fragment slot="hero"></Fragment>
+
+  <main class="services-page">
+    <section class="page-hero">
+      <span class="eyebrow">SERVICES</span>
+      <h1>Build visibility across search and AI.</h1>
+      <p>
+        I help B2B SaaS and service businesses improve their organic visibility across Google and AI search through SEO, content, and authority building.
+      </p>
+      <a class="button button-primary" href="/contact">Let's Work Together →</a>
+    </section>
+
+    <section class="service-section" aria-labelledby="services-heading">
+      <div class="section-heading">
+        <span class="eyebrow">WHAT I HELP WITH</span>
+        <h2 id="services-heading">Search visibility with a clear point of view.</h2>
+        <p>I help businesses become more visible where their customers search — across traditional search engines and AI-powered search.</p>
+      </div>
+
+      <div class="service-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <span class="service-number">{service.number}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <ul>
+              {service.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="process-section" aria-labelledby="process-heading">
+      <div class="section-heading">
+        <span class="eyebrow">PROCESS</span>
+        <h2 id="process-heading">How I work</h2>
+      </div>
+
+      <ol class="process-grid">
+        {process.map(([number, title, description]) => (
+          <li class="process-step">
+            <span>{number}</span>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="audience-section" aria-labelledby="audience-heading">
+      <div class="audience-panel">
+        <span class="eyebrow">WHO I WORK WITH</span>
+        <h2 id="audience-heading">B2B SaaS &amp; service businesses</h2>
+        <p>I work best with businesses that have a clear offer, an identifiable audience, and a desire to build long-term organic and AI search visibility.</p>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="services-cta-heading">
+      <div>
+        <h2 id="services-cta-heading">Want to improve your search visibility?</h2>
+        <p>Tell me what you're trying to rank for, what you're seeing in AI search, and where you're stuck.</p>
+      </div>
+      <a class="button button-light" href="/contact">Let's Work Together →</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .services-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .page-hero {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .eyebrow {
+    color: #4b3cf0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  .page-hero h1 {
+    max-width: 700px;
+    margin: 0.6rem 0 1rem;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .page-hero p {
+    max-width: 650px;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 1.35rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .button-primary {
+    background: #111;
+    color: white;
+  }
+
+  .service-section,
+  .process-section,
+  .audience-section {
+    padding: 4rem 0;
+    border-top: 1px solid #eee;
+  }
+
+  .section-heading {
+    max-width: 640px;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading h2,
+  .audience-panel h2,
+  .services-cta h2 {
+    margin: 0.55rem 0 0.8rem;
+    font-size: clamp(1.7rem, 3vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .section-heading p,
+  .audience-panel p {
+    margin-bottom: 0;
+    color: #666;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .service-card {
+    min-width: 0;
+    padding: 1.75rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fafafa;
+  }
+
+  .service-number,
+  .process-step > span {
+    display: block;
+    margin-bottom: 1rem;
+    color: #4b3cf0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .service-card h3,
+  .process-step h3 {
+    margin-bottom: 0.65rem;
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .service-card p,
+  .process-step p {
+    margin-bottom: 1.2rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .service-card ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-card li {
+    display: flex;
+    gap: 0.6rem;
+    color: #444;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .service-card li::before {
+    content: '•';
+    color: #4b3cf0;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .process-step {
+    min-width: 0;
+    padding-left: 1rem;
+    border-left: 2px solid #eee;
+  }
+
+  .process-step p {
+    margin-bottom: 0;
+  }
+
+  .audience-panel {
+    padding: 2rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fafafa;
+  }
+
+  .audience-panel p {
+    max-width: 650px;
+  }
+
+  .services-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    background: #4b3cf0;
+    color: white;
+  }
+
+  .services-cta h2 {
+    margin-top: 0;
+  }
+
+  .services-cta p {
+    max-width: 600px;
+    margin-bottom: 0;
+    opacity: 0.9;
+  }
+
+  .button-light {
+    flex: 0 0 auto;
+    background: white;
+    color: #4b3cf0;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 800px) {
+    .process-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-page {
+      padding: 0 1rem 4rem;
+    }
+
+    .page-hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .page-hero p {
+      font-size: 1rem;
+    }
+
+    .service-section,
+    .process-section,
+    .audience-section {
+      padding: 3rem 0;
+    }
+
+    .service-grid,
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .audience-panel {
+      padding: 1.5rem;
+    }
+
+    .services-cta {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+    }
+
+    .button-light {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+</style>

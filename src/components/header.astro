@@ -6,21 +6,21 @@ const isActive = (href: string) =>
 
 <header class="navbar">
   <div class="nav-container">
-    <div class="logo">
-      <span class="logo-mark">AP</span>
-      <div class="logo-text">
-        <strong>Abhishek Parpala</strong>
-        <small>SEO & AI Search Strategist</small>
-      </div>
-    </div>
+    <a href="/" class="logo">
+  <span class="logo-mark">AP</span>
+  <div class="logo-text">
+    <strong>Abhishek Parpala</strong>
+    <small>SEO & AI Search Strategist</small>
+  </div>
+</a>
     <nav class="nav-links">
       <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
       <a href="/about" class={isActive("/about") ? "active" : ""}>About</a>
-      <a href="/#services">Services</a>
+      <a href="/services" class={isActive("/services") ? "active" : ""}>Services</a>
       <a href="/blog/" class={isActive("/blog") ? "active" : ""}>Blog</a>
-      <a href="/#contact">Contact</a>
+      <a href="/contact" class={isActive("/contact") ? "active" : ""}>Contact</a>
     </nav>
-    <a href="mailto:abhishekparpala@gmail.com" class="nav-cta">Let's Work Together →</a>
+    <a href="mailto:abhishekparpala@gmail.com" class="nav-cta">Work With Me →</a>
     <button
       class="menu-toggle"
       type="button"
@@ -34,10 +34,10 @@ const isActive = (href: string) =>
   <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
     <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
     <a href="/about" class={isActive("/about") ? "active" : ""}>About</a>
-    <a href="/#services">Services</a>
+    <a href="/services" class={isActive("/services") ? "active" : ""}>Services</a>
     <a href="/blog/" class={isActive("/blog") ? "active" : ""}>Blog</a>
-    <a href="/#contact">Contact</a>
-    <a href="mailto:abhishekparpala@gmail.com" class="mobile-nav-cta">Let's Work Together →</a>
+    <a href="/contact" class={isActive("/contact") ? "active" : ""}>Contact</a>
+    <a href="mailto:abhishekparpala@gmail.com" class="mobile-nav-cta">Work With Me →</a>
   </nav>
 </header>
 
@@ -60,11 +60,18 @@ const isActive = (href: string) =>
     gap: 1rem;
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+ .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
 
   .logo-mark {
     background: #4b3cf0;
