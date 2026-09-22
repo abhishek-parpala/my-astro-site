@@ -718,6 +718,33 @@ import Layout from '../layouts/Layout.astro';
   }
 
 }
+
+@media (max-width: 600px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  .service-grid,
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    gap: 1.5rem;
+  }
+
+  .final-cta {
+    padding: 2rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .cta-white {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
   @media (max-width: 500px) {
     .hero h1 {
       font-size: 1.8rem;
