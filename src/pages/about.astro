@@ -1,0 +1,351 @@
+---
+// Adjust this import to match your project structure —
+// e.g. '../layouts/Layout.astro' if that's where your shared layout lives.
+import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  {
+    n: '01',
+    title: 'AI Search Visibility',
+    body: 'Tracking whether a brand shows up when ChatGPT, Perplexity, and Google AI Overviews answer questions its buyers are already asking.',
+  },
+  {
+    n: '02',
+    title: 'AI Search Competitor Research',
+    body: 'Mapping who gets named in those answers instead, and which sources the models are pulling that authority from.',
+  },
+  {
+    n: '03',
+    title: 'Brand Mentions & Citations',
+    body: 'Building the kind of third-party mentions that language models treat as evidence, not just the kind that rank on Google.',
+  },
+  {
+    n: '04',
+    title: 'Reddit & Community Marketing',
+    body: 'Reddit is one of the most cited sources in AI answers. Getting a brand talked about there, credibly, is its own discipline.',
+  },
+  {
+    n: '05',
+    title: 'Off-Page SEO & Link Building',
+    body: 'The foundation underneath all of it — four years of link building and outreach, now aimed at a newer kind of visibility.',
+  },
+];
+
+const timeline = [
+  {
+    year: '2022',
+    text: 'Started in SEO — link building, outreach, and WordPress publishing at scale.',
+  },
+  {
+    year: 'Since',
+    text: 'Operations manager at WHLinks, a white-hat link building agency, running the day-to-day for its founder.',
+  },
+  {
+    year: 'Last year',
+    text: 'Moved into GEO/AEO — helping brands get found inside AI answers, not just search results.',
+  },
+  {
+    year: 'Now',
+    text: 'Building a freelance practice around it, with this site doubling as the case study.',
+  },
+];
+---
+
+<Layout title="About — Abhishek Parpala">
+  <Fragment slot="hero" />
+  <main class="about">
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker">About</p>
+        <h1>I help brands get cited, not just ranked.</h1>
+        <p class="lede">
+          Search is splitting in two. One half still returns ten blue links.
+          The other half — ChatGPT, Perplexity, Google AI Overviews — just
+          answers the question, and either names your brand or doesn't. I
+          work on the second half: off-page authority and Reddit marketing
+          for SaaS and service brands trying to become the answer.
+        </p>
+      </div>
+    </section>
+
+    <section class="bio">
+      <div class="wrap wrap--narrow">
+        <p>
+          My name's Abhishek Parpala. I got into SEO in 2022 doing link
+          building and outreach, and I still run operations for a white-hat
+          link building agency today. Four years of getting brands ranked
+          taught me how authority actually gets built on the web — who links
+          to whom, what makes a mention credible, what a search engine
+          trusts.
+        </p>
+        <p>
+          That same authority is what AI models lean on when they decide
+          which brand to name in an answer. So the skill transfers, but the
+          playbook doesn't — an AI Overview doesn't care about your keyword
+          density, and it reads Reddit threads the way Google used to read
+          backlinks. I spent the last year rebuilding my approach around
+          that difference.
+        </p>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <div class="wrap">
+        <h2>What I work on</h2>
+        <ol class="pillar-list">
+          {pillars.map((p) => (
+            <li class="pillar">
+              <span class="pillar-n">{p.n}</span>
+              <div>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <div class="wrap wrap--narrow">
+        <h2>How I got here</h2>
+        <ol class="tl-list">
+          {timeline.map((t) => (
+            <li class="tl-item">
+              <span class="tl-year">{t.year}</span>
+              <p>{t.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="now">
+      <div class="wrap wrap--narrow">
+        <h2>Right now</h2>
+        <p>
+          I'm early — building this site as a live case study, taking on a
+          first case-study client, and putting the same visibility tracking
+          I'd run for a client to work on my own name. If you're a SaaS or
+          service brand wondering whether AI search even mentions you yet,
+          that's the first thing I'd look at.
+        </p>
+        <a class="cta" href="/contact">Book a Free AI Visibility Audit</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+  .about {
+    --ink: #10131c;
+    --ink-soft: #9aa3b5;
+    --paper: #eceee7;
+    --paper-soft: #6b7078;
+    --signal: #dd9c3f;
+    --line-dark: rgba(255, 255, 255, 0.14);
+    --line-light: rgba(16, 19, 28, 0.14);
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    font-family: var(--sans);
+    color: var(--ink);
+  }
+
+  .wrap {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .wrap--narrow {
+    max-width: 38rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  p {
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
+  }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--signal);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    max-width: 20ch;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 42rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Bio */
+  .bio {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .bio p {
+    font-size: 1.05rem;
+    color: #2b2f38;
+  }
+
+  /* Pillars */
+  .pillars {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .pillars h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+  }
+
+  .pillar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pillar {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line-light);
+  }
+
+  .pillar:last-child {
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .pillar-n {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--signal);
+  }
+
+  .pillar h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar p {
+    color: var(--paper-soft);
+    max-width: 42rem;
+    margin: 0;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .timeline h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+  }
+
+  .tl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--line-light);
+  }
+
+  .tl-item {
+    padding: 0 0 1.5rem 1.5rem;
+    position: relative;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0.4rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--signal);
+  }
+
+  .tl-year {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--signal);
+    margin-bottom: 0.25rem;
+  }
+
+  .tl-item p {
+    margin: 0;
+  }
+
+  /* Now / CTA */
+  .now {
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 9vw, 6rem);
+  }
+
+  .now h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+
+  .cta:hover {
+    background: var(--signal);
+    color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .pillar {
+      grid-template-columns: 2rem 1fr;
+    }
+  }
+</style>

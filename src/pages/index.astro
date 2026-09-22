@@ -2,97 +2,82 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+
 <Layout
-  title="Abhishek Parpala | AI Search Strategist"
-  description="Helping SaaS and ecommerce brands get recommended by AI search platforms through authentic off-page authority building."
+  title="Abhishek Parpala | SEO & AI Search Strategist"
+  description="Helping B2B SaaS Get More Customers from Google & AI Search"
 >
-  <!-- This page builds its own hero below, so we cancel Layout's default
+  
+<!-- This page builds its own hero below, so we cancel Layout's default
        RotatingHero fallback by filling the "hero" slot with nothing. -->
   <Fragment slot="hero"></Fragment>
 
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <span class="logo-mark">AP</span>
-        <div class="logo-text">
-          <strong>Abhishek Parpala</strong>
-          <small>AI Search Strategist</small>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="/blog/">Blog</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a href="mailto:abhishekparpala@gmail.com" class="nav-cta">Let's Work Together →</a>
-    </div>
-  </header>
-
   <main>
     <section class="hero" id="home">
-      <div class="hero-text">
-        <span class="eyebrow">AI SEARCH STRATEGIST</span>
-        <h1>I help brands show up in AI answers that your customers <span class="highlight">trust.</span></h1>
-        <p class="subheadline">
-          Specializing in GEO, AEO & Reddit Marketing to get your brand
-          cited in ChatGPT, Perplexity & Google AI Overviews.
-        </p>
-        <div class="hero-buttons">
-          <a href="mailto:abhishekparpala@gmail.com" class="cta-primary">Work With Me →</a>
-          <a href="#services" class="cta-secondary">View Services →</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <span class="hero-visual-label">Get Your Brand Recommended by</span>
-        <div class="platform-rotator" id="platform-rotator">
-          <div class="platform-badge is-active" data-index="0">
-            <span class="badge-icon" aria-hidden="true"><img src="/icons/chatgpt.png" alt="" /></span>
-            <span>ChatGPT</span>
-          </div>
-          <div class="platform-badge" data-index="1">
-            <span class="badge-icon" aria-hidden="true"><img src="/icons/perplexity.png" alt="" /></span>
-            <span>Perplexity</span>
-          </div>
-          <div class="platform-badge" data-index="2">
-            <span class="badge-icon" aria-hidden="true"><img src="/icons/google-ai-overviews.png" alt="" /></span>
-            <span>Google AI Overviews</span>
-          </div>
-          <div class="platform-badge" data-index="3">
-            <span class="badge-icon" aria-hidden="true"><img src="/icons/claude.png" alt="" /></span>
-            <span>Claude</span>
-          </div>
-          <div class="platform-badge" data-index="4">
-            <span class="badge-icon" aria-hidden="true"><img src="/icons/gemini.png" alt="" /></span>
-            <span>Gemini</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="hero-content">
 
-    <section class="stats">
-      <div class="stat">
-        <strong>No AI Spam</strong>
-        <span>Human-first strategies</span>
-      </div>
-      <div class="stat">
-        <strong>Quality First</strong>
-        <span>Relevant mentions & citations</span>
-      </div>
-      <div class="stat">
-        <strong>Data-Driven</strong>
-        <span>Every decision backed by data</span>
-      </div>
-      <div class="stat">
-        <strong>Authority</strong>
-        <span>Long-term trust & visibility</span>
-      </div>
-    </section>
+    <h1>
+      Get discovered wherever your customers
+      <span class="highlight"> search.</span>
+    </h1>
+<div class="hero-visual">
+  <div class="platform-rotator" id="platform-rotator">
+
+    <div class="platform-badge is-active">
+      <span class="badge-icon">
+        <img src="/icons/chatgpt.png" alt="" />
+      </span>
+      <span>ChatGPT</span>
+    </div>
+
+    <div class="platform-badge">
+      <span class="badge-icon">
+        <img src="/icons/perplexity.png" alt="" />
+      </span>
+      <span>Perplexity</span>
+    </div>
+
+    <div class="platform-badge">
+      <span class="badge-icon">
+        <img src="/icons/google-ai-overviews.png" alt="" />
+      </span>
+      <span>Google AI Overviews</span>
+    </div>
+
+    <div class="platform-badge">
+      <span class="badge-icon">
+        <img src="/icons/claude.png" alt="" />
+      </span>
+      <span>Claude</span>
+    </div>
+
+    <div class="platform-badge">
+      <span class="badge-icon">
+        <img src="/icons/gemini.png" alt="" />
+      </span>
+      <span>Gemini</span>
+    </div>
+
+  </div>
+</div>
+
+    <p class="subheadline">
+      I help B2B SaaS companies build visibility across Google, AI search,
+      and the wider web through SEO, content, and authority.
+    </p>
+
+    <a href="https://calendly.com/abhishekparpala" target="_blank" class="cta-primary">
+      Book a Free Strategy Call →
+    </a>
+    
+
+  </div>
+</section>
+
 
     <section class="services" id="services">
       <span class="eyebrow">WHAT I DO</span>
-      <h2>Strategic Solutions for <span class="highlight">AI Visibility</span> & Growth.</h2>
+      <h2>How I Help <span class="highlight">B2B SaaS</span> Companies Get Discovered.</h2>
       <div class="service-grid">
         <div class="service-card">
           <div class="service-icon">
@@ -101,8 +86,8 @@ import Layout from '../layouts/Layout.astro';
               <path d="M20 20 L16.2 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </div>
-          <h3>AI Search Optimization (GEO & AEO)</h3>
-          <p>Optimize your brand to get cited in ChatGPT, Perplexity and Google AI Overviews.</p>
+          <h3>SEO & AI Search Audit</h3>
+          <p>Diagnose your organic search performance, technical SEO, keyword opportunities, and visibility across ChatGPT, Perplexity, and Google AI Overviews.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -110,8 +95,8 @@ import Layout from '../layouts/Layout.astro';
               <path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
             </svg>
           </div>
-          <h3>Reddit Marketing</h3>
-          <p>Build real engagement that drives brand visibility, traffic and earns trust.</p>
+          <h3>Content & On-Page SEO</h3>
+          <p>Build search-focused content, topic clusters, and optimized pages that capture organic demand and give AI search clear, citable information.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -121,8 +106,8 @@ import Layout from '../layouts/Layout.astro';
               <path d="M13 17 L10.5 19.5a3.5 3.5 0 0 1-5-5L8 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </div>
-          <h3>Off-Page Authority & Citations</h3>
-          <p>Earn high-quality backlinks, mentions and citations from trusted websites.</p>
+          <h3>Digital PR & Off-Page Authority</h3>
+          <p>Build backlinks, brand mentions, citations, and third-party visibility across publications, review platforms, communities, and Reddit.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -130,122 +115,72 @@ import Layout from '../layouts/Layout.astro';
               <path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </div>
-          <h3>AI Search Monitoring & Reporting</h3>
-          <p>Track your brand's visibility on AI platforms with custom reports and dashboards.</p>
+          <h3>AI Search Visibility Tracking</h3>
+          <p>Track AI mentions, citations, share of voice, competitors, and visibility across AI search to understand what's changing and where opportunities remain.</p>
         </div>
       </div>
     </section>
 
-    <section class="process">
-      <span class="eyebrow">MY PROCESS</span>
-      <h2>A Data-Driven Process That Gets Results.</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
-              <path d="M20 20 L16.2 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </svg>
-          </div>
-          <span class="step-number">01</span>
-          <h3>Research & Audit</h3>
-          <p>I analyze your brand, competitors and AI search landscape.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8" />
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
-              <circle cx="12" cy="12" r="0.8" fill="currentColor" />
-            </svg>
-          </div>
-          <span class="step-number">02</span>
-          <h3>Strategy & Roadmap</h3>
-          <p>Custom GEO/AEO & Reddit strategy tailored for your brand and goals.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 3 C9 4 6.5 7 5.5 11.5 L8 14 L10.5 16.5 C15 15.5 18 13 19 9 C19.7 6.3 19.4 4.6 19 3 C17.4 2.6 15.7 2.3 13 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-              <circle cx="14.5" cy="7.5" r="1.4" stroke="currentColor" stroke-width="1.4" />
-              <path d="M8 14 L5 17 M10.5 16.5 L7.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <span class="step-number">03</span>
-          <h3>Implementation</h3>
-          <p>I execute the plan — Reddit engagement, outreach, content & citations.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </svg>
-          </div>
-          <span class="step-number">04</span>
-          <h3>Monitor & Scale</h3>
-          <p>Track results, measure impact and scale what works for long-term growth.</p>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="about" id="about">
+  <div class="about-content">
+    <div class="about-text">
       <span class="eyebrow">ABOUT ME</span>
+
       <h2>Hi, I'm Abhishek Parpala.</h2>
-      <p>
-        I'm an AI Search Strategist specializing in Generative Engine
-        Optimization (GEO) and Answer Engine Optimization (AEO). Since 2021,
-        I've worked in SEO and off-page authority building for brands looking
-        to grow organic visibility. Now I help SaaS and ecommerce companies
-        show up where their customers are actually searching — inside
-        AI-generated answers.
-      </p>
-      <p>
-        Most GEO/AEO agencies rely on fake accounts and manufactured
-        engagement. I don't. Every mention, every conversation, every signal
-        I build for your brand is real — because that's what actually earns
-        trust with both AI models and real customers.
-      </p>
-    </section>
 
-    <section class="testimonials">
-      <span class="eyebrow">WHAT CLIENTS SAY</span>
-      <h2>Results that speak for themselves.</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <p>"Working with Abhishek helped us get cited in both ChatGPT and Perplexity. The impact on our brand visibility was incredible."</p>
-          <strong>Dhruv Kadara</strong>
-          <span>Co-Founder, For Future India</span>
-        </div>
-        <div class="testimonial-card">
-          <p>"We started seeing AI mentions within weeks. His approach is data-driven, ethical and actually works."</p>
-          <strong>Jeenal Dhuri</strong>
-          <span>Cybersecurity Professional</span>
-        </div>
-        <div class="testimonial-card">
-          <p>"Professional, responsive and focused on real results. Highly recommend working with Abhishek."</p>
-          <strong>Maitreyee Patil</strong>
-          <span>Analyst - Risk and Compliance</span>
-        </div>
-      </div>
+      <p>
+        I'm an SEO & AI Search Strategist focused on B2B SaaS. I've been
+        working in SEO since 2021, with experience across content, organic
+        search, and off-page authority.
+      </p>
 
-    </section>
+      <p>
+        Today, I focus on how search is evolving beyond traditional Google
+        results and how B2B SaaS companies can build visibility across
+        Google, AI search, and the wider web.
+      </p>
+
+      <p>
+        I combine SEO fundamentals with AI Search optimization, content
+        strategy, and authority building to help brands get discovered
+        wherever their customers search.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img
+        src="/images/abhishek-about.png"
+        alt="Abhishek Parpala"
+      />
+    </div>
+  </div>
+</section>
+
+
 
     <section class="final-cta" id="contact">
       <div class="cta-content">
-        <h2>Ready to Increase Your Brand Visibility in AI Search Platforms?</h2>
-        <p>Let's build your brand's presence in ChatGPT, Perplexity & Google AI Overviews.</p>
+        <h2>Notes on SEO & AI Search</h2>
+        <p>Insights on SEO, AI Search, and building visibility across the modern search ecosystem.</p>
       </div>
-      <a href="mailto:abhishekparpala@gmail.com" class="cta-white">Let's Work Together →</a>
-    </section>
+<a href="https://abhishekparpala.substack.com/"
+  class="cta-white"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Subscribe to the Newsletter →
+</a>    </section>
 
     <footer class="footer">
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo">
-            <span class="logo-mark">AP</span>
             <div class="logo-text">
               <strong>Abhishek Parpala</strong>
-              <small>AI Search Strategist | GEO & AEO Expert</small>
+              <br>
+              <small>SEO & AI Search Strategist for B2B SaaS</small>
             </div>
           </div>
 
@@ -292,159 +227,111 @@ import Layout from '../layouts/Layout.astro';
     padding: 0 1.5rem;
   }
 
-  .navbar {
-    border-bottom: 1px solid #eee;
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+ .hero {
+  padding: 6rem 0 5rem;
+  border-bottom: 1px solid #eee;
+}
 
-  .nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+.hero h1 {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
 
-  .logo-mark {
-    background: #4b3cf0;
-    color: white;
-    font-weight: 700;
-    padding: 0.4rem 0.6rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-  }
+.highlight {
+  color: #4b3cf0;
+}
 
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
+.subheadline {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #555;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
 
-  .logo-text strong {
-    font-size: 0.95rem;
-  }
+.cta-primary {
+  display: inline-block;
+  background: #111;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
 
-  .logo-text small {
-    color: #888;
-    font-size: 0.7rem;
-  }
+.hero-visual {
+  width: 100%;
+  max-width: 400px;
+  margin: 1.5rem auto 1.5rem;
+}
 
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-  }
 
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
 
-  .nav-links a.active {
-    color: #4b3cf0;
-  }
+.platform-rotator {
+  position: relative;
+  width: 100%;
+  height: 4.2rem;
+  border-radius: 16px;
+}
 
-  .nav-cta {
-    background: #111;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-  }
+.platform-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
 
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    padding: 4rem 0;
-    flex-wrap: wrap;
-  }
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
 
-  .hero-text {
-    flex: 1;
-    min-width: 280px;
-  }
+  font-weight: 600;
+  color: #1a1a2e;
 
-  .eyebrow {
-    color: #4b3cf0;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-  }
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 
-  .hero h1 {
-    font-size: 2.6rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    margin: 0.8rem 0 1.2rem;
-  }
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
 
-  .highlight {
-    color: #4b3cf0;
-  }
+.platform-badge.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .subheadline {
-    color: #555;
-    font-size: 1.05rem;
-    margin-bottom: 1.8rem;
-    max-width: 480px;
-  }
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
 
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .cta-primary {
-    background: #111;
-    color: white;
-    padding: 0.8rem 1.6rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  .cta-secondary {
-    padding: 0.8rem 1.6rem;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #111;
-  }
-
-  .hero-visual {
-    flex: 1;
-    min-width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-
-  .hero-visual-label {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: #333;
-  }
+.badge-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
   /* --- Rotating platform badge (true crossfade, never blank) --- */
   .platform-rotator {
@@ -570,26 +457,7 @@ import Layout from '../layouts/Layout.astro';
     color: #666;
   }
 
-  .process {
-    padding: 3rem 0;
-    border-top: 1px solid #eee;
-  }
-
-  .process h2 {
-    font-size: 1.8rem;
-    margin: 0.5rem 0 2rem;
-    max-width: 500px;
-  }
-
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-  }
-
-  .process-step {
-    text-align: center;
-  }
+  
 
   .step-icon {
     width: 2.4rem;
@@ -627,16 +495,34 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .about {
-    padding: 3rem 0;
-    border-top: 1px solid #eee;
-    max-width: 700px;
-  }
+  padding: 3rem 0;
+  border-top: 2px solid #eee;
+}
 
-  .about p {
-    color: #444;
-    margin-bottom: 1rem;
-  }
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
 
+.about-text {
+  max-width: 550px;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+}
   .testimonials {
     padding: 3rem 0;
     border-top: 1px solid #eee;
@@ -647,7 +533,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 1.8rem;
     margin: 0.5rem 0 2rem;
     max-width: 500px;
-  }
+  }.about
 
   .testimonial-grid {
     display: grid;
@@ -788,12 +674,50 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  @media (max-width: 700px) {
-    .nav-links {
-      display: none;
-    }
+@media (max-width: 700px) {
+
+  .hero {
+    padding: 4rem 0 3rem;
   }
 
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .subheadline {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    margin-top: 2rem;
+  }
+
+  /* ABOUT MOBILE */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .final-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
   @media (max-width: 500px) {
     .hero h1 {
       font-size: 1.8rem;

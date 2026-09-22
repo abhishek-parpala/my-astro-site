@@ -1,0 +1,108 @@
+---
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-mark">AP</span>
+      <div class="logo-text">
+        <strong>Abhishek Parpala</strong>
+        <small>SEO & AI Search Strategist</small>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
+      <a href="/about" class={isActive("/about") ? "active" : ""}>About</a>
+      <a href="/#services">Services</a>
+      <a href="/blog/" class={isActive("/blog") ? "active" : ""}>Blog</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <a href="mailto:abhishekparpala@gmail.com" class="nav-cta">Let's Work Together →</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    border-bottom: 1px solid #eee;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .logo-mark {
+    background: #4b3cf0;
+    color: white;
+    font-weight: 700;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text strong {
+    font-size: 0.95rem;
+  }
+
+  .logo-text small {
+    color: #888;
+    font-size: 0.7rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .nav-links a.active {
+    color: #4b3cf0;
+  }
+
+  .nav-cta {
+    background: #111;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 700px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
