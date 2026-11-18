@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Disclaimer | Abhishek Parpala"
+  description="Disclaimer for information published on this website."
+>
+  <Fragment slot="hero" />
+  <main class="legal-page">
+    <article>
+      <h1>Disclaimer</h1>
+      <p class="updated">Last updated: November 18, 2026</p>
+
+      <h2>General information</h2>
+      <p>The information on this website is provided for general educational purposes only. It is not professional, legal, financial, or technical advice specific to every situation.</p>
+
+      <h2>SEO results</h2>
+      <p>Search optimization depends on factors outside the control of any individual or agency. No particular ranking, traffic level, revenue, or outcome is guaranteed.</p>
+
+      <h2>Accuracy</h2>
+      <p>Reasonable efforts are made to keep content accurate and current, but no warranty is made regarding completeness, reliability, or suitability for a particular purpose.</p>
+
+      <h2>External links</h2>
+      <p>External resources are provided for convenience. I do not control or endorse their content, availability, or privacy practices.</p>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal-page { max-width: 780px; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
+  article h1 { margin: 0 0 0.4rem; font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.05; }
+  .updated { color: #77738a; margin-bottom: 3rem; }
+  h2 { margin: 2.2rem 0 0.55rem; font-size: 1.35rem; }
+  p { color: #555166; line-height: 1.75; }
+</style>

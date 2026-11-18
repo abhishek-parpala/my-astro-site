@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const featuredPost = posts[0];
 ---
 
 
@@ -14,64 +20,77 @@ import Layout from '../layouts/Layout.astro';
 
   <main>
     <section class="hero" id="home">
-  <div class="hero-content">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="hero-kicker"><span></span> SEO &amp; AI Search <b>·</b> Open to SEO roles</p>
+            <h1>
+              Get discovered wherever your customers
+              <span class="highlight"> search.</span>
+            </h1>
+            <div class="hero-visual" aria-label="Search platforms">
+              <div class="platform-rotator" id="platform-rotator">
 
-    <h1>
-      Get discovered wherever your customers
-      <span class="highlight"> search.</span>
-    </h1>
-<div class="hero-visual">
-  <div class="platform-rotator" id="platform-rotator">
+                <div class="platform-badge is-active">
+                  <span class="badge-icon">
+                    <img src="/icons/chatgpt.png" alt="" />
+                  </span>
+                  <span>ChatGPT</span>
+                </div>
 
-    <div class="platform-badge is-active">
-      <span class="badge-icon">
-        <img src="/icons/chatgpt.png" alt="" />
-      </span>
-      <span>ChatGPT</span>
-    </div>
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <img src="/icons/perplexity.png" alt="" />
+                  </span>
+                  <span>Perplexity</span>
+                </div>
 
-    <div class="platform-badge">
-      <span class="badge-icon">
-        <img src="/icons/perplexity.png" alt="" />
-      </span>
-      <span>Perplexity</span>
-    </div>
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <img src="/icons/google-ai-overviews.png" alt="" />
+                  </span>
+                  <span>Google AI Overviews</span>
+                </div>
 
-    <div class="platform-badge">
-      <span class="badge-icon">
-        <img src="/icons/google-ai-overviews.png" alt="" />
-      </span>
-      <span>Google AI Overviews</span>
-    </div>
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <img src="/icons/claude.png" alt="" />
+                  </span>
+                  <span>Claude</span>
+                </div>
 
-    <div class="platform-badge">
-      <span class="badge-icon">
-        <img src="/icons/claude.png" alt="" />
-      </span>
-      <span>Claude</span>
-    </div>
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <img src="/icons/gemini.png" alt="" />
+                  </span>
+                  <span>Gemini</span>
+                </div>
 
-    <div class="platform-badge">
-      <span class="badge-icon">
-        <img src="/icons/gemini.png" alt="" />
-      </span>
-      <span>Gemini</span>
-    </div>
+              </div>
+            </div>
 
-  </div>
-</div>
+            <p class="subheadline">
+              SEO professional with hands-on experience in content, off-page authority,
+              and organic search, now focused on helping a search marketing team grow visibility.
+            </p>
 
-    <p class="subheadline">
-      I help B2B SaaS companies build visibility across Google, AI search,
-      and the wider web through SEO, content, and authority.
-    </p>
+            <div class="hero-actions">
+              <a href="/work" class="cta-primary">
+                Explore my work
+                <span class="cta-icon" aria-hidden="true">↗</span>
+              </a>
+              <a href="/resume.pdf" class="cta-secondary" download>
+                Download resume
+                <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
 
-    <a href="https://calendly.com/abhishekparpala" target="_blank" class="cta-primary">
-      Book a Free Strategy Call →
-    </a>
+          <aside class="hero-portrait" aria-label="About Abhishek">
+            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" />
+          </aside>
+        </div>
     
 
-  </div>
 </section>
 
 
@@ -126,57 +145,74 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    
+    {featuredPost && (
+      <section class="blog-featured" aria-labelledby="blog-featured-title">
+        <div class="blog-featured-heading">
+          <div>
+            <span class="eyebrow">FROM THE BLOG</span>
+            <h2 id="blog-featured-title">Ideas on SEO &amp; AI Search.</h2>
+          </div>
+          <a class="all-posts-link" href="/blog/">View all articles <span aria-hidden="true">↗</span></a>
+        </div>
+        <a
+          class:list={['featured-post-card', { 'has-image': featuredPost.data.image }]}
+          href={`/blog/${featuredPost.id}/`}
+        >
+          {featuredPost.data.image && (
+            <div class="featured-post-image">
+              <img src={featuredPost.data.image} alt={featuredPost.data.title} />
+            </div>
+          )}
+          <div class="featured-post-copy">
+            <span class="featured-post-meta">
+              <time datetime={featuredPost.data.publishDate.toISOString()}>
+                {featuredPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <span>Featured article</span>
+            </span>
+            <h3>{featuredPost.data.title}</h3>
+            <p>{featuredPost.data.description}</p>
+            <span class="read-article-link">Read article <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <p class="newsletter-note">
+          For more SEO &amp; AI Search notes, <a href="https://abhishekparpala.substack.com/" target="_blank" rel="noopener noreferrer">subscribe to the newsletter</a>.
+        </p>
+      </section>
+    )}
 
     <section class="about" id="about">
-  <div class="about-content">
-    <div class="about-text">
-      <span class="eyebrow">ABOUT ME</span>
-
-      <h2>Hi, I'm Abhishek Parpala.</h2>
-
-      <p>
-        I'm an SEO & AI Search Strategist focused on B2B SaaS. I've been
-        working in SEO since 2022, with experience across content, organic
-        search, and off-page authority.
-      </p>
-
-      <p>
-        Today, I focus on how search is evolving beyond traditional Google
-        results and how B2B SaaS companies can build visibility across
-        Google, AI search, and the wider web.
-      </p>
-
-      <p>
-        I combine SEO fundamentals with AI Search optimization, content
-        strategy, and authority building to help brands get discovered
-        wherever their customers search.
-      </p>
-    </div>
-
-    <div class="about-image">
-      <img
-        src="/images/abhishek-about.png"
-        alt="Abhishek Parpala"
-      />
-    </div>
-  </div>
-</section>
-
-
-
-    <section class="final-cta" id="contact">
-      <div class="cta-content">
-        <h2>Notes on SEO & AI Search</h2>
-        <p>Insights on SEO, AI Search, and building visibility across the modern search ecosystem.</p>
+      <div class="about-content">
+        <div class="about-intro">
+          <span class="eyebrow">ABOUT ME</span>
+          <h2>Hi, I'm Abhishek Parpala.</h2>
+          <p class="about-tagline">SEO &amp; AI Search strategist focused on helping B2B SaaS brands get discovered.</p>
+          <div class="about-image">
+            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" />
+          </div>
+        </div>
+        <div class="about-copy">
+          <p>
+            I'm an SEO &amp; AI Search Strategist focused on B2B SaaS. I've been
+            working in SEO since 2022, with experience across content, organic
+            search, and off-page authority.
+          </p>
+          <p>
+            Today, I focus on how search is evolving beyond traditional Google
+            results and how B2B SaaS companies can build visibility across
+            Google, AI search, and the wider web.
+          </p>
+          <p>
+            I combine SEO fundamentals with AI Search optimization, content
+            strategy, and authority building to help brands get discovered
+            wherever their customers search.
+          </p>
+          <div class="about-cta">
+            <a href="/about">Learn more about me</a>
+          </div>
+        </div>
       </div>
-<a href="https://abhishekparpala.substack.com/"
-  class="cta-white"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Subscribe to the Newsletter →
-</a>    </section>
+    </section>
 
     <footer class="footer">
       <div class="footer-top">
@@ -215,6 +251,12 @@ import Layout from '../layouts/Layout.astro';
           <a href="/blog/">Blog</a>
         </div>
         <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/terms-and-conditions">Terms and Conditions</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-col">
           <h4>Contact</h4>
           <a href="mailto:abhishekparpala@gmail.com">abhishekparpala@gmail.com</a>
         </div>
@@ -232,56 +274,218 @@ import Layout from '../layouts/Layout.astro';
   }
 
  .hero {
-  padding: 6rem 0 5rem;
-  border-bottom: 1px solid #eee;
+ position: relative;
+ overflow: hidden;
+ padding: 5.5rem 0 5rem;
+ border-bottom: 1px solid #e8e5f4;
+ background:
+   radial-gradient(ellipse at 82% 25%, rgb(112 84 245 / 10%), transparent 34%),
+   linear-gradient(180deg, #fff 0%, #fbfaff 100%);
 }
 
 .hero-content {
-  max-width: 900px;
+ display: grid;
+ grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.72fr);
+ align-items: center;
+ gap: clamp(2rem, 5vw, 4.5rem);
+ max-width: 1050px;
   margin: 0 auto;
-  text-align: center;
+}
+
+.hero-copy {
+ min-width: 0;
+}
+
+.hero-copy > * {
+ opacity: 0;
+ animation: hero-content-enter 620ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.hero-copy > :nth-child(2) {
+ animation-delay: 80ms;
+}
+
+.hero-copy > :nth-child(3) {
+ animation-delay: 160ms;
+}
+
+.hero-copy > :nth-child(4) {
+ animation-delay: 240ms;
+}
+
+.hero-copy > :nth-child(5) {
+ animation-delay: 320ms;
+}
+
+.hero-portrait {
+ animation: hero-portrait-enter 760ms cubic-bezier(0.2, 0.7, 0.25, 1) 140ms both;
+}
+
+@keyframes hero-content-enter {
+ from {
+   opacity: 0;
+   transform: translateY(14px);
+ }
+
+ to {
+   opacity: 1;
+   transform: translateY(0);
+ }
+}
+
+@keyframes hero-portrait-enter {
+ from {
+   opacity: 0;
+   transform: translateX(16px) scale(0.98);
+ }
+
+ to {
+   opacity: 1;
+   transform: translateX(0) scale(1);
+ }
+}
+
+.hero-kicker {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.55rem;
+ margin: 0 0 1.2rem;
+ padding: 0.48rem 0.8rem;
+ border: 1px solid #e9e4ff;
+ border-radius: 999px;
+ background: #fff;
+ color: #4331bd;
+ font-size: 0.78rem;
+ font-weight: 700;
+ letter-spacing: 0.015em;
+}
+
+.hero-kicker > span {
+ width: 0.48rem;
+ height: 0.48rem;
+ border-radius: 50%;
+ background: #36a879;
+ box-shadow: 0 0 0 3px rgb(54 168 121 / 13%);
+}
+
+.hero-kicker b {
+ color: #aaa3c7;
 }
 
 .hero h1 {
-  max-width: 900px;
-  margin: 0 auto 1.5rem;
-  font-size: clamp(3rem, 6vw, 5rem);
+ max-width: 720px;
+ margin: 0 0 1.15rem;
+ font-size: clamp(3rem, 5.7vw, 4.65rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.045em;
+ line-height: 1.04;
+ letter-spacing: -0.06em;
   text-wrap: balance;
 }
 
 .highlight {
-  color: #4b3cf0;
+ color: #5b42e8;
 }
 
 .subheadline {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  color: #555;
-  font-size: 1.15rem;
-  line-height: 1.7;
+ max-width: 610px;
+ margin: 0 0 1.6rem;
+ color: #5f5b6d;
+ font-size: 1.05rem;
+ line-height: 1.75;
 }
 
-.cta-primary {
-  display: inline-block;
-  background: #111;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 30px;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 13px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.hero-actions a:hover {
+  transform: translateY(-2px);
+}
+
+.cta-primary {
+  background: #19162a;
+  color: white;
+  box-shadow: 0 8px 18px rgb(30 24 65 / 14%);
+}
+
+.cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 3px;
+  background: #654de8;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.cta-secondary {
+  border-color: #e2dfec !important;
+  background: rgb(255 255 255 / 80%);
+  color: #242135;
+}
+
+.cta-secondary:hover {
+  border-color: #bdb1f5 !important;
+  background: #fff;
 }
 
 .hero-visual {
   width: 100%;
-  max-width: 400px;
-  margin: 1.5rem auto 1.5rem;
+  max-width: 380px;
+  margin: 1.35rem 0 1.4rem;
 }
 
+.hero-portrait {
+  position: relative;
+  min-width: 0;
+  max-width: 390px;
+  justify-self: end;
+  padding: 0.7rem;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #f1edff, #d9d1ff 55%, #c1b6f8);
+  box-shadow: 0 28px 70px rgb(51 36 123 / 16%);
+}
 
+.hero-portrait::before {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid rgb(91 66 232 / 18%);
+  border-radius: 50%;
+  content: '';
+}
+
+.hero-portrait > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.88;
+  border-radius: 21px;
+  object-fit: cover;
+  object-position: center 32%;
+}
 
 .platform-rotator {
   position: relative;
@@ -416,6 +620,160 @@ import Layout from '../layouts/Layout.astro';
     border-top: 1px solid #eee;
   }
 
+  .blog-featured {
+    padding: 0 0 4.5rem;
+  }
+
+  .blog-featured-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-featured .eyebrow {
+    display: inline-flex;
+    color: #4b3cf0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .blog-featured-heading h2 {
+    margin: 0.6rem 0 0;
+    font-size: clamp(1.7rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+
+  .all-posts-link,
+  .read-article-link {
+    color: #5138d6;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .all-posts-link {
+    flex: 0 0 auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .featured-post-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    border: 1px solid #e9e6f3;
+    border-radius: 20px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 8px 26px rgb(35 23 84 / 4%);
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+
+  .featured-post-card.has-image {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .featured-post-card:hover {
+    transform: translateY(-3px);
+    border-color: #d3caf9;
+    box-shadow: 0 16px 34px rgb(35 23 84 / 9%);
+  }
+
+  .featured-post-card:focus-visible,
+  .all-posts-link:focus-visible,
+  .newsletter-note a:focus-visible {
+    outline: 3px solid #8a72ff;
+    outline-offset: 3px;
+  }
+
+  .featured-post-image {
+    min-height: 250px;
+    overflow: hidden;
+    background: #f0edff;
+  }
+
+  .featured-post-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    transition: transform 240ms ease;
+  }
+
+  .featured-post-card:hover .featured-post-image img {
+    transform: scale(1.025);
+  }
+
+  .featured-post-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .featured-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 0.8rem;
+    margin-bottom: 0.9rem;
+    color: #777285;
+    font-size: 0.78rem;
+  }
+
+  .featured-post-meta > span {
+    color: #5138d6;
+    font-weight: 700;
+  }
+
+  .featured-post-copy h3 {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .featured-post-copy p {
+    margin: 0 0 1.1rem;
+    color: #625e70;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .read-article-link span,
+  .all-posts-link span {
+    display: inline-block;
+    transition: transform 160ms ease;
+  }
+
+  .featured-post-card:hover .read-article-link span,
+  .all-posts-link:hover span {
+    transform: translate(2px, -2px);
+  }
+
+  .newsletter-note {
+    margin: 1rem 0 0;
+    color: #777285;
+    font-size: 0.88rem;
+    text-align: right;
+  }
+
+  .newsletter-note a {
+    color: #5138d6;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .newsletter-note a:hover,
+  .all-posts-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .services .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -454,9 +812,17 @@ import Layout from '../layouts/Layout.astro';
 
   .service-card {
     background: #fff;
-    border: 1px solid #e8e6f7;
-    border-radius: 18px;
-    padding: 1.25rem;
+    border: 1px solid #e9e6f3;
+    border-radius: 20px;
+    padding: 1.35rem;
+    box-shadow: 0 8px 24px rgb(32 24 74 / 3%);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: #d3caf9;
+    box-shadow: 0 16px 34px rgb(32 24 74 / 8%);
   }
 
   .service-icon {
@@ -527,34 +893,95 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .about {
-  padding: 3rem 0;
-  border-top: 2px solid #eee;
-}
+    padding: 3.5rem 0 4.5rem;
+  }
 
-.about-content {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  gap: 3rem;
-  align-items: center;
-}
+  .about-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 1px solid #e9e6f3;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgb(31 24 68 / 8%);
+  }
 
-.about-text {
-  max-width: 550px;
-}
+  .about-intro h2 {
+    margin: 0.75rem 0 0.65rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.05em;
+  }
 
-.about-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .about-tagline {
+    max-width: 440px;
+    margin: 0;
+    color: #625e70;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
 
-.about-image img {
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  border-radius: 20px;
-  object-fit: cover;
-}
+  .about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.75rem auto 0;
+  }
+
+  .about-image img {
+    display: block;
+    width: min(100%, 260px);
+    aspect-ratio: 1;
+    height: auto;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 28%;
+    box-shadow: 0 18px 42px rgb(31 24 68 / 14%);
+  }
+
+  .about-copy {
+    color: #3d394b;
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .about-copy p {
+    margin: 0 0 1.15rem;
+  }
+
+  .about-cta {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
+
+  .about-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.7rem 1.35rem;
+    border-radius: 999px;
+    background: #eeeaff;
+    color: #5138d6;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .about-cta a:hover {
+    transform: translateY(-2px);
+    background: #e3dcff;
+  }
+
+  .about-cta a:focus-visible {
+    outline: 3px solid #8a72ff;
+    outline-offset: 3px;
+  }
   .testimonials {
     padding: 3rem 0;
     border-top: 1px solid #eee;
@@ -603,41 +1030,8 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 1rem;
   }
 
-  .final-cta {
-    background: linear-gradient(135deg, #4b3cf0, #7d6cf5);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    margin: 3rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-    color: white;
-  }
-
-  .cta-content h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-content p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
-
-  .cta-white {
-    background: white;
-    color: #4b3cf0;
-    padding: 0.8rem 1.6rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
   .footer {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #eeeaf5;
   padding: 3rem 0 1.5rem;
   margin-top: 2rem;
 }
@@ -709,7 +1103,24 @@ import Layout from '../layouts/Layout.astro';
 @media (max-width: 700px) {
 
   .hero {
-    padding: 3rem 0 2.5rem;
+    padding: 3.3rem 0 3rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-kicker {
+    margin-bottom: 1.1rem;
+    font-size: 0.72rem;
   }
 
   .hero h1 {
@@ -725,32 +1136,42 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .hero-visual {
-    margin-top: 2rem;
+    margin: 1.25rem 0 1.25rem;
+  }
+
+  .subheadline {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-portrait {
+    width: min(74%, 290px);
+    justify-self: center;
   }
 
   /* ABOUT MOBILE */
   .about-content {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.75rem;
+    padding: 1.5rem;
   }
 
-  .about-text {
-    max-width: 100%;
+  .about-intro {
+    text-align: center;
+  }
+
+  .about-tagline {
+    margin-inline: auto;
   }
 
   .about-image {
     width: 100%;
     justify-content: center;
+    margin-top: 1.5rem;
   }
 
   .about-image img {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .final-cta {
-    flex-direction: column;
-    align-items: flex-start;
+    width: min(52vw, 210px);
+    max-width: 100%;
   }
 
 }
@@ -761,7 +1182,31 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .services {
-    padding: 3.5rem 0;
+    padding: 3.8rem 0;
+  }
+
+  .blog-featured {
+    padding-bottom: 3.5rem;
+  }
+
+  .blog-featured-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .featured-post-card.has-image {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-post-image,
+  .featured-post-image img {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .newsletter-note {
+    text-align: left;
   }
 
   .services h2 {
@@ -782,28 +1227,79 @@ import Layout from '../layouts/Layout.astro';
     gap: 1.5rem;
   }
 
-  .final-cta {
-    padding: 2rem 1.25rem;
-    gap: 1.5rem;
+  .hero-actions {
+    justify-content: center;
   }
 
-  .cta-white {
-    width: 100%;
-    text-align: center;
-    white-space: normal;
-  }
 }
 
   @media (max-width: 500px) {
+    .hero-kicker {
+      max-width: 100%;
+      gap: 0.4rem;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.66rem;
+    }
+
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 10vw, 2.25rem);
       line-height: 1.05;
       text-align: center;
       text-wrap: balance;
       margin-inline: auto;
     }
+
+    .hero-actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .hero-actions a {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .hero-portrait {
+      width: min(82%, 280px);
+    }
+
     .stats, .service-grid, .process-grid, .testimonial-grid {
       grid-template-columns: 1fr;
+    }
+
+    .footer {
+      padding-inline: 1rem;
+    }
+
+    .footer-col {
+      text-align: left;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-copy > *,
+    .hero-portrait {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .hero-actions a,
+    .about-cta a,
+    .service-card,
+    .featured-post-card,
+    .featured-post-image img,
+    .read-article-link span,
+    .all-posts-link span {
+      transition: none;
+    }
+
+    .hero-actions a:hover,
+    .about-cta a:hover,
+    .service-card:hover,
+    .featured-post-card:hover,
+    .featured-post-card:hover .featured-post-image img {
+      transform: none;
     }
   }
 </style>

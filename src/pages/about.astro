@@ -58,15 +58,22 @@ const timeline = [
   <Fragment slot="hero" />
   <main class="about">
     <section class="hero">
-      <div class="wrap">
-        <p class="kicker">About Abhishek</p>
-        <h1>SEO professional focused on modern search visibility.</h1>
-        <p class="lede">
-          I combine traditional SEO with the changing realities of AI search.
-          My experience spans link building, content, digital PR, outreach,
-          operations, and measuring whether brands are visible across Google
-          and generative search platforms.
-        </p>
+      <div class="wrap about-hero-grid">
+        <div class="about-hero-copy">
+          <p class="kicker"><span></span> ABOUT ABHISHEK</p>
+          <h1>SEO professional focused on modern search visibility.</h1>
+          <p class="lede">
+            I combine traditional SEO with the changing realities of AI search.
+            My experience spans link building, content, digital PR, outreach,
+            operations, and measuring whether brands are visible across Google
+            and generative search platforms.
+          </p>
+          <a class="hero-link" href="/contact">Discuss an opportunity <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="about-hero-photo">
+          <img src="/images/abhishek-about.png" alt="Abhishek Parpala" />
+          <span class="photo-caption">SEO · Content · Authority</span>
+        </div>
       </div>
     </section>
 
@@ -138,16 +145,17 @@ const timeline = [
 <style>
   .about {
     --ink: #1a1a2e;
-    --ink-soft: #555;
-    --paper: #f5f5ff;
-    --paper-soft: #555;
-    --signal: #4b3cf0;
-    --line-light: #eee;
+    --ink-soft: #5f5b6d;
+    --paper: #f7f5ff;
+    --paper-soft: #625e70;
+    --signal: #5942dc;
+    --line-light: #e9e6f2;
     --serif: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
     --sans: 'Inter', system-ui, sans-serif;
     font-family: var(--sans);
     color: var(--ink);
-    background: #fdfdff;
+    background: #fff;
+    overflow: hidden;
   }
 
   .wrap {
@@ -177,31 +185,111 @@ const timeline = [
 
   /* Hero */
   .hero {
-    background: #fdfdff;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 82% 25%, rgb(112 84 245 / 10%), transparent 34%),
+      linear-gradient(180deg, #fff 0%, #fbfaff 100%);
     color: var(--ink);
     border-bottom: 1px solid var(--line-light);
-    padding: clamp(4rem, 10vw, 6rem) 0 clamp(3rem, 7vw, 5rem);
+    padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+  }
+
+  .about-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.72fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+  }
+
+  .about-hero-copy {
+    min-width: 0;
   }
 
   .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
     font-family: var(--sans);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 700;
     color: var(--signal);
-    margin-bottom: 1.25rem;
+    margin: 0 0 1.15rem;
+    letter-spacing: 0.04em;
+  }
+
+  .kicker span {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    background: #36a879;
+    box-shadow: 0 0 0 3px rgb(54 168 121 / 13%);
   }
 
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.4rem);
-    max-width: 20ch;
+    max-width: 17ch;
     letter-spacing: -0.045em;
+    line-height: 1.07;
   }
 
   .lede {
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--ink-soft);
-    max-width: 42rem;
-    margin-top: 1.5rem;
+    max-width: 39rem;
+    margin: 1.2rem 0 1.5rem;
+  }
+
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 48px;
+    padding: 0.75rem 1.1rem;
+    border-radius: 12px;
+    background: #19162a;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .hero-link:hover {
+    transform: translateY(-2px);
+    background: var(--signal);
+  }
+
+  .about-hero-photo {
+    position: relative;
+    max-width: 360px;
+    justify-self: end;
+    padding: 0.65rem;
+    border: 1px solid #e8e2ff;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #f1edff, #d2c8ff);
+    box-shadow: 0 24px 60px rgb(51 36 123 / 14%);
+  }
+
+  .about-hero-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 0.9;
+    border-radius: 19px;
+    object-fit: cover;
+    object-position: center 32%;
+  }
+
+  .photo-caption {
+    position: absolute;
+    right: -1rem;
+    bottom: 1.4rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #eeebf7;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgb(25 22 42 / 12%);
+    color: #4b3baf;
+    font-size: 0.75rem;
+    font-weight: 700;
   }
 
   /* Bio */
@@ -228,6 +316,9 @@ const timeline = [
   }
 
   .pillar-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -235,20 +326,33 @@ const timeline = [
 
   .pillar {
     display: grid;
-    grid-template-columns: 3rem 1fr;
-    gap: 1rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--line-light);
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.85rem;
+    min-height: 150px;
+    padding: 1.2rem;
+    border: 1px solid #e9e5f5;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgb(34 25 78 / 3%);
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
   }
 
-  .pillar:last-child {
-    border-bottom: 1px solid var(--line-light);
+  .pillar:hover {
+    transform: translateY(-3px);
+    border-color: #d3caf9;
+    box-shadow: 0 14px 28px rgb(34 25 78 / 7%);
   }
 
   .pillar-n {
+    display: grid;
+    width: 2.3rem;
+    height: 2.3rem;
+    place-items: center;
+    border-radius: 10px;
+    background: #f0edff;
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     color: var(--signal);
   }
 
@@ -259,7 +363,7 @@ const timeline = [
 
   .pillar p {
     color: var(--paper-soft);
-    max-width: 42rem;
+    font-size: 0.9rem;
     margin: 0;
   }
 
@@ -323,7 +427,7 @@ const timeline = [
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.85rem 1.6rem;
-    background: #111;
+    background: #19162a;
     color: white;
     text-decoration: none;
     font-family: var(--sans);
@@ -334,18 +438,48 @@ const timeline = [
 
   .cta:hover {
     background: var(--signal);
-    color: var(--ink);
+    color: white;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .cta {
+    .cta,
+    .hero-link,
+    .pillar {
       transition: none;
+    }
+
+    .hero-link:hover,
+    .pillar:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .about-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .about-hero-photo {
+      width: min(74%, 300px);
+      justify-self: center;
+    }
+
+    .pillar-list {
+      grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 40rem) {
     .pillar {
-      grid-template-columns: 2rem 1fr;
+      grid-template-columns: 2.3rem 1fr;
+      min-height: 0;
+      padding: 1rem;
+    }
+
+    .photo-caption {
+      right: -0.5rem;
+      bottom: 1rem;
     }
   }
 </style>

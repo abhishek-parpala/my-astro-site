@@ -13,8 +13,8 @@ const email = 'abhishekparpala@gmail.com';
   <main class="contact-page">
     <section class="contact-hero">
       <span class="eyebrow">CONTACT</span>
-      <h1>Let's talk about your search visibility.</h1>
-      <p>Have a question about SEO, AI Search, GEO, or improving your brand's visibility across Google and AI search? I'd be happy to hear what you're working on.</p>
+      <h1>Let's talk about <span>search visibility.</span></h1>
+      <p>Interested in an SEO, organic growth, or search marketing opportunity? I'd be glad to connect and share how my experience could support your team.</p>
     </section>
 
     <section class="contact-method" aria-labelledby="email-heading">
@@ -23,7 +23,7 @@ const email = 'abhishekparpala@gmail.com';
         <h2 id="email-heading">Email me</h2>
         <a class="email-address" href={`mailto:${email}`}>{email}</a>
       </div>
-      <a class="button" href={`mailto:${email}`}>Work With Me →</a>
+      <a class="button" href={`mailto:${email}`}>Discuss an opportunity <span aria-hidden="true">↗</span></a>
     </section>
 
     <section class="elsewhere" aria-labelledby="elsewhere-heading">
@@ -32,6 +32,7 @@ const email = 'abhishekparpala@gmail.com';
       <div class="social-links">
         <a href="https://www.linkedin.com/in/abhishekparpala/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
         <a href="https://www.youtube.com/@abhishekparpala" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/abhishek-parpala" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -41,16 +42,22 @@ const email = 'abhishekparpala@gmail.com';
   .contact-page {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1.5rem 5rem;
+    padding: 0 1.5rem 6rem;
   }
 
   .contact-hero {
     max-width: 760px;
-    padding: 5rem 0 4rem;
+    padding: 5rem 0 3.5rem;
   }
 
   .eyebrow {
-    color: #4b3cf0;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #e8e2ff;
+    border-radius: 999px;
+    background: #f7f5ff;
+    color: #5138d6;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -66,14 +73,18 @@ const email = 'abhishekparpala@gmail.com';
     max-width: 700px;
     margin: 0.6rem 0 1rem;
     font-size: clamp(2.4rem, 5vw, 4rem);
-    line-height: 1.1;
-    letter-spacing: -0.04em;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+
+  .contact-hero h1 span {
+    color: #5942dc;
   }
 
   .contact-hero p {
     max-width: 680px;
     margin-bottom: 0;
-    color: #555;
+    color: #5f5b6d;
     font-size: 1.1rem;
     line-height: 1.7;
   }
@@ -83,10 +94,13 @@ const email = 'abhishekparpala@gmail.com';
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding: 2.5rem 2rem;
-    border: 1px solid #eee;
-    border-radius: 16px;
-    background: #fafafa;
+    padding: 2.5rem;
+    border: 1px solid #e9e6f3;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 100% 0, rgb(112 84 245 / 9%), transparent 34%),
+      linear-gradient(135deg, #fff, #faf9ff);
+    box-shadow: 0 18px 42px rgb(34 25 78 / 5%);
   }
 
   .contact-method h2,
@@ -97,7 +111,7 @@ const email = 'abhishekparpala@gmail.com';
   }
 
   .email-address {
-    color: #4b3cf0;
+    color: #5138d6;
     font-size: 1.05rem;
     font-weight: 600;
     overflow-wrap: anywhere;
@@ -110,13 +124,26 @@ const email = 'abhishekparpala@gmail.com';
     flex: 0 0 auto;
     min-height: 44px;
     padding: 0.75rem 1.35rem;
-    border-radius: 30px;
-    background: #111;
+    gap: 0.5rem;
+    border-radius: 12px;
+    background: #19162a;
     color: white;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
+    transition: background 150ms ease, transform 150ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    background: #5138d6;
+  }
+
+  .button:focus-visible,
+  .social-links a:focus-visible {
+    outline: 2px solid #725de8;
+    outline-offset: 3px;
   }
 
   .elsewhere {
@@ -125,8 +152,8 @@ const email = 'abhishekparpala@gmail.com';
 
   .social-links {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
     margin-top: 1.5rem;
   }
 
@@ -134,17 +161,24 @@ const email = 'abhishekparpala@gmail.com';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 64px;
-    padding: 1rem 1.25rem;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    color: #333;
+    min-height: 60px;
+    padding: 1rem;
+    border: 1px solid #e9e6f3;
+    border-radius: 13px;
+    background: #fff;
+    color: #343044;
     font-weight: 600;
     text-decoration: none;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+
+  .social-links a:hover {
+    transform: translateY(-2px);
+    border-color: #c9bef9;
   }
 
   .social-links span {
-    color: #4b3cf0;
+    color: #5138d6;
   }
 
   @media (max-width: 600px) {
@@ -153,7 +187,7 @@ const email = 'abhishekparpala@gmail.com';
     }
 
     .contact-hero {
-      padding: 3.5rem 0 3rem;
+      padding: 3.5rem 0 2.75rem;
     }
 
     .contact-hero p {
@@ -163,7 +197,7 @@ const email = 'abhishekparpala@gmail.com';
     .contact-method {
       align-items: stretch;
       flex-direction: column;
-      padding: 2rem 1.5rem;
+      padding: 1.6rem 1.25rem;
     }
 
     .button {
@@ -177,6 +211,18 @@ const email = 'abhishekparpala@gmail.com';
 
     .social-links {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button,
+    .social-links a {
+      transition: none;
+    }
+
+    .button:hover,
+    .social-links a:hover {
+      transform: none;
     }
   }
 </style>

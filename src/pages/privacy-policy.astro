@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy | Abhishek Parpala"
+  description="How information is collected and used on this website."
+>
+  <Fragment slot="hero" />
+  <main class="legal-page">
+    <article>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: November 18, 2026</p>
+
+      <h2>Information collected</h2>
+      <p>This website may collect limited technical information such as browser type, device information, pages visited, referring pages, and general usage activity.</p>
+
+      <h2>Analytics</h2>
+      <p>Google Analytics may be used to understand website traffic and improve content. Analytics providers may use cookies or similar technologies to collect anonymized usage information.</p>
+
+      <h2>Information you provide</h2>
+      <p>If you contact me by email or use an external service linked from this website, information you choose to provide is used to respond or provide the requested interaction.</p>
+
+      <h2>Third-party services</h2>
+      <p>This website may use cookies and external services that operate under their own privacy policies.</p>
+
+      <h2>Contact</h2>
+      <p>For privacy questions or requests, contact <a href="mailto:abhishekparpala@gmail.com">abhishekparpala@gmail.com</a>.</p>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal-page { max-width: 780px; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
+  article h1 { margin: 0 0 0.4rem; font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.05; }
+  .updated { color: #77738a; margin-bottom: 3rem; }
+  h2 { margin: 2.2rem 0 0.55rem; font-size: 1.35rem; }
+  p { color: #555166; line-height: 1.75; }
+  a { color: #5138d6; }
+</style>

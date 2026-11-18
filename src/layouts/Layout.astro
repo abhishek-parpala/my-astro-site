@@ -40,6 +40,10 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -47,6 +51,7 @@ const { title, description } = Astro.props;
     background: #fdfdff;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4 {
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -54,5 +59,44 @@ const { title, description } = Astro.props;
   }
   * {
     box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+
+  main,
+  article,
+  section {
+    min-width: 0;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.95rem;
+    }
+
+    input,
+    textarea,
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .legal-page {
+      padding: 3.25rem 1rem 4rem !important;
+    }
+
+    .legal-page article h1 {
+      font-size: clamp(2rem, 10vw, 2.5rem);
+      line-height: 1.08;
+    }
+
+    .legal-page h2 {
+      margin-top: 1.8rem;
+    }
   }
 </style>

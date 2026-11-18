@@ -25,7 +25,7 @@ const { project } = Astro.props;
       <header class="case-hero">
         <div class="labels">
           <span class="category">{project.category}</span>
-          <span class="practice">Practice Project</span>
+          <span class="practice">{project.type === 'practice' ? 'Practice project' : 'Project'}</span>
         </div>
         <h1>{project.title}</h1>
         <p class="intro">{project.description}</p>
@@ -40,17 +40,19 @@ const { project } = Astro.props;
         <p>{project.detail}</p>
       </section>
 
-      <aside class="practice-note">
-        <strong>Practice project</strong>
-        <p>This is a self-initiated portfolio example. Any dashboard visuals or figures are illustrative and are not client results.</p>
-      </aside>
+      {project.type === 'practice' && (
+        <aside class="practice-note">
+          <strong>Practice project</strong>
+          <p>This is a self-initiated portfolio example. The visuals illustrate a workflow and do not represent client results.</p>
+        </aside>
+      )}
 
       <section class="case-cta" aria-labelledby="case-cta-heading">
         <div>
-          <h2 id="case-cta-heading">Have a similar challenge?</h2>
-          <p>Get in touch to talk through your SEO and AI search goals.</p>
+          <h2 id="case-cta-heading">Interested in my approach?</h2>
+          <p>Let’s talk about how I can contribute to an SEO or search marketing team.</p>
         </div>
-        <a href="/contact">Contact me →</a>
+        <a href="/contact">Discuss an opportunity →</a>
       </section>
     </article>
   </main>
@@ -58,27 +60,38 @@ const { project } = Astro.props;
 
 <style>
   .case-study {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 5rem;
+    padding: 2.2rem 1.5rem 5.5rem;
   }
 
   .back-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: 2.5rem;
-    color: #4b20ed;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid #e9e6f3;
+    border-radius: 10px;
+    color: #5138d6;
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
+    transition: border-color 150ms ease, background 150ms ease;
   }
 
   .back-link:hover {
-    text-decoration: underline;
+    border-color: #d3caf9;
+    background: #f7f5ff;
   }
 
   .case-hero {
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid #e9e7ef;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid #e9e6f3;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 100% 0, rgb(112 84 245 / 10%), transparent 34%),
+      linear-gradient(135deg, #fff, #faf9ff);
+    box-shadow: 0 16px 38px rgb(34 25 78 / 5%);
   }
 
   .labels,
@@ -139,7 +152,7 @@ const { project } = Astro.props;
 
   .project-overview {
     max-width: 720px;
-    padding: 2.5rem 0;
+    padding: 3rem 0;
   }
 
   .eyebrow {
@@ -168,8 +181,8 @@ const { project } = Astro.props;
   .practice-note {
     padding: 1.25rem 1.5rem;
     border: 1px solid #e9e2ff;
-    border-radius: 14px;
-    background: #faf8ff;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #faf8ff, #fff);
   }
 
   .practice-note strong {
@@ -191,10 +204,12 @@ const { project } = Astro.props;
     justify-content: space-between;
     gap: 1.5rem;
     margin-top: 2.5rem;
-    padding: 1.6rem 1.8rem;
-    border-radius: 16px;
-    background: linear-gradient(110deg, #5428e9, #8147f5);
+    padding: 1.8rem 2rem;
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: 20px;
+    background: linear-gradient(110deg, #3925b8, #654de8 72%, #7865ed);
     color: white;
+    box-shadow: 0 16px 34px rgb(61 42 150 / 17%);
   }
 
   .case-cta h2,
@@ -214,21 +229,27 @@ const { project } = Astro.props;
   .case-cta a {
     flex: 0 0 auto;
     padding: 0.7rem 1.1rem;
-    border-radius: 999px;
+    border-radius: 12px;
     background: white;
     color: #4b20ed;
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .case-cta a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgb(25 22 42 / 15%);
   }
 
   @media (max-width: 600px) {
     .case-study {
-      padding: 1.5rem 1rem 3.5rem;
+      padding: 1.5rem 1rem 4rem;
     }
 
     .back-link {
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.4rem;
     }
 
     .case-cta {
@@ -239,6 +260,17 @@ const { project } = Astro.props;
 
     .case-cta a {
       align-self: flex-start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back-link,
+    .case-cta a {
+      transition: none;
+    }
+
+    .case-cta a:hover {
+      transform: none;
     }
   }
 </style>

@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Terms and Conditions | Abhishek Parpala"
+  description="Terms and conditions for using this website."
+>
+  <Fragment slot="hero" />
+  <main class="legal-page">
+    <article>
+      <h1>Terms and Conditions</h1>
+      <p class="updated">Last updated: November 18, 2026</p>
+
+      <h2>Use of this website</h2>
+      <p>By using this website, you agree to use it lawfully and not interfere with its operation or with other users.</p>
+
+      <h2>Website content</h2>
+      <p>The information published here is for general information and may change without notice. It should not replace advice specific to your situation.</p>
+
+      <h2>Intellectual property</h2>
+      <p>Unless stated otherwise, the website's original text, design, and assets belong to Abhishek Parpala. Permission is required for commercial reproduction or redistribution.</p>
+
+      <h2>External links</h2>
+      <p>Third-party websites linked from this site operate under their own terms and policies. I am not responsible for their content or availability.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms may be sent to <a href="mailto:abhishekparpala@gmail.com">abhishekparpala@gmail.com</a>.</p>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal-page { max-width: 780px; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
+  article h1 { margin: 0 0 0.4rem; font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.05; }
+  .updated { color: #77738a; margin-bottom: 3rem; }
+  h2 { margin: 2.2rem 0 0.55rem; font-size: 1.35rem; }
+  p { color: #555166; line-height: 1.75; }
+  a { color: #5138d6; }
+</style>

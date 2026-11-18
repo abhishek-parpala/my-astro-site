@@ -15,29 +15,24 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     <section class="work-hero" aria-labelledby="work-heading">
       <div class="hero-copy">
         <span class="eyebrow">MY WORK</span>
-        <h1 id="work-heading">Projects, Case Studies &amp; Real-World <span>Work.</span></h1>
-        <p>A collection of projects and case studies that show my approach to SEO, off-page authority, and AI search (GEO). Practice projects are clearly labeled.</p>
+        <h1 id="work-heading">Thoughtful SEO. <span>Practical work.</span></h1>
+        <p>Explore how I approach organic growth, off-page authority, and AI search. Practice examples are clearly labeled.</p>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 480 300" role="presentation">
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#f2eaff" />
-              <stop offset="1" stop-color="#c5a6ff" />
-            </linearGradient>
-            <linearGradient id="mountain" x1="0" y1="0" x2="0.9" y2="1">
-              <stop offset="0" stop-color="#8f69dc" />
-              <stop offset="1" stop-color="#35206f" />
-            </linearGradient>
-          </defs>
-          <rect width="480" height="300" rx="28" fill="url(#sky)" />
-          <circle cx="380" cy="58" r="44" fill="#fff" opacity=".22" />
-          <path d="M0 225 91 146l43 35 82-107 54 68 48-42 162 122v78H0Z" fill="#fff" opacity=".52" />
-          <path d="m0 246 102-92 48 43L218 91l70 91 42-37 150 100v55H0Z" fill="url(#mountain)" />
-          <path d="m218 91 23 48-20-10-19 20 16-31-13-4Z" fill="#fff" opacity=".94" />
-          <path d="m0 247 102-93-38 62 37-19 37 34 31-31 50 51Z" fill="#b99af4" opacity=".78" />
-          <path d="m258 223 42-41 36 14 42-17 102 66v55H235Z" fill="#271453" opacity=".62" />
-        </svg>
+        <div class="signal-dashboard">
+          <div class="signal-dashboard__top">
+            <span class="signal-mark" aria-hidden="true">✳</span>
+            <span>SEARCH LANDSCAPE</span>
+            <span class="signal-arrow" aria-hidden="true">↗</span>
+          </div>
+          <h2>Visibility is built across more than one result page.</h2>
+          <div class="signal-channels">
+            <div><span class="channel-icon channel-icon--search">G</span><span><strong>Organic search</strong><small>Relevance · technical health</small></span><b>01</b></div>
+            <div><span class="channel-icon channel-icon--ai">✳</span><span><strong>AI answers</strong><small>Sources · brand mentions</small></span><b>02</b></div>
+            <div><span class="channel-icon channel-icon--authority">↗</span><span><strong>Web authority</strong><small>Content · trusted references</small></span><b>03</b></div>
+          </div>
+          <div class="signal-dashboard__foot"><span></span> Connected search signals</div>
+        </div>
       </div>
     </section>
 
@@ -65,40 +60,27 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
           id={project.id}
         >
           <div class:list={['project-preview', project.visual]} aria-hidden="true">
-            {project.visual === 'search-console' && (
-              <div class="dashboard">
-                <div class="dashboard-top"><span class="google-mark">G</span><strong>Search Console</strong><span class="menu-dots">•••</span></div>
-                <div class="dashboard-title">Performance</div>
-                <svg class="line-chart" viewBox="0 0 320 92" preserveAspectRatio="none">
-                  <path d="M0 75 C25 70 28 54 52 62 S85 69 102 48 128 58 147 40 170 58 190 35 215 47 235 20 259 36 278 12 300 18 320 2" fill="none" stroke="#6747ff" stroke-width="3" />
-                  <path d="M0 90H320" stroke="#e9e7f2" />
-                </svg>
-                <div class="metric-row"><span>Total clicks<strong>86.4K</strong></span><span>Total impressions<strong>4.2M</strong></span><span>Avg. CTR<strong>2.1%</strong></span></div>
+            <div class="preview-board">
+              <div class="preview-board__top">
+                <span>PROCESS SNAPSHOT</span>
+                <span class="preview-board__spark" aria-hidden="true">✳</span>
               </div>
-            )}
-            {project.visual === 'backlinks' && (
-              <div class="backlink-window">
-                <div class="window-title">ahrefs <span>•••</span></div>
-                <div class="referring-box"><small>Referring domains</small><strong>1,248 <em>+32%</em></strong><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+              <strong class="preview-board__title">{project.category}</strong>
+              <div class="preview-steps">
+                {project.steps.map((step, index) => (
+                  <div class="preview-step">
+                    <span>0{index + 1}</span>
+                    <strong>{step}</strong>
+                    <i aria-hidden="true">↗</i>
+                  </div>
+                ))}
               </div>
-            )}
-            {project.visual === 'ai-visibility' && (
-              <div class="ai-window">
-                <div class="chat-brand"><span>✳</span> ChatGPT</div>
-                <div class="ai-layout"><div class="answer-lines"><i></i><i></i><i></i><i></i></div><div class="brand-list"><b>✓ &nbsp; Your Brand</b><span>◯ &nbsp; Competitor A</span><span>◯ &nbsp; Competitor B</span></div></div>
-              </div>
-            )}
-            {project.visual === 'site-audit' && (
-              <div class="audit-window">
-                <div class="window-controls"><i></i><i></i><i></i></div>
-                <strong>Site Audit</strong>
-                <div class="audit-content"><div class="audit-score"><span>92</span><small>/100</small></div><div class="audit-checks"><span>Crawling <b>✓</b></span><span>Indexing <b>✓</b></span><span>Core Web Vitals <b>✓</b></span><span>On-Page SEO <b>✓</b></span></div></div>
-              </div>
-            )}
+              <div class="preview-board__foot"><span></span> Illustrative workflow</div>
+            </div>
           </div>
           <div class="project-copy">
             <span class="project-category">{project.category}</span>
-            <span class="practice-label">Practice Project</span>
+            <span class="practice-label">{project.type === 'practice' ? 'Practice project' : 'Project'}</span>
             <h2>{project.title}</h2>
             <p>{project.description}</p>
             <div class="project-tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
@@ -201,13 +183,135 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
   .hero-art {
     overflow: hidden;
     border-radius: 24px;
-    aspect-ratio: 1.55;
+    min-height: 270px;
   }
 
   .hero-art svg {
     display: block;
     width: 100%;
     height: 100%;
+  }
+
+  .signal-dashboard {
+    display: flex;
+    height: 100%;
+    min-height: 270px;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid #e8e2ff;
+    border-radius: 23px;
+    background:
+      radial-gradient(circle at 100% 0, rgb(142 121 255 / 22%), transparent 40%),
+      linear-gradient(145deg, #fff, #f1edff);
+    box-shadow: 0 18px 45px rgb(61 42 150 / 9%);
+  }
+
+  .signal-dashboard__top,
+  .signal-dashboard__foot {
+    display: flex;
+    align-items: center;
+  }
+
+  .signal-dashboard__top {
+    gap: 0.6rem;
+    color: #77718d;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+  }
+
+  .signal-mark {
+    display: grid;
+    width: 1.7rem;
+    height: 1.7rem;
+    place-items: center;
+    border-radius: 8px;
+    background: #5b42e8;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .signal-arrow {
+    margin-left: auto;
+    color: #5b42e8;
+    font-size: 1.2rem;
+  }
+
+  .signal-dashboard h2 {
+    max-width: 20ch;
+    margin: 1.1rem 0 1rem;
+    color: #211d37;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .signal-channels {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .signal-channels > div {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid #ebe8f5;
+    border-radius: 11px;
+    background: rgb(255 255 255 / 83%);
+  }
+
+  .channel-icon {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 2rem;
+    place-items: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+
+  .channel-icon--search { background: #eef4ff; color: #4285f4; }
+  .channel-icon--ai { background: #e9f7f0; color: #258d65; }
+  .channel-icon--authority { background: #f1edff; color: #6048dc; }
+
+  .signal-channels strong,
+  .signal-channels small {
+    display: block;
+  }
+
+  .signal-channels strong {
+    color: #28243b;
+    font-size: 0.78rem;
+  }
+
+  .signal-channels small {
+    margin-top: 0.1rem;
+    color: #777285;
+    font-size: 0.65rem;
+  }
+
+  .signal-channels > div > b {
+    margin-left: auto;
+    color: #aaa4bd;
+    font-size: 0.65rem;
+  }
+
+  .signal-dashboard__foot {
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+    color: #777285;
+    font-size: 0.67rem;
+  }
+
+  .signal-dashboard__foot span,
+  .preview-board__foot span {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: #36a879;
   }
 
   .filters {
@@ -233,7 +337,11 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
   .filter-button:hover,
   .filter-button:focus-visible {
     border-color: #5729f5;
-    outline: none;
+  }
+
+  .filter-button:focus-visible {
+    outline: 2px solid #725de8;
+    outline-offset: 3px;
   }
 
   .filter-button.selected {
@@ -255,10 +363,10 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     gap: 1.15rem;
     min-width: 0;
     padding: 0.8rem;
-    border: 1px solid #e9e7ef;
-    border-radius: 17px;
+    border: 1px solid #e9e6f3;
+    border-radius: 20px;
     background: #fff;
-    box-shadow: 0 5px 18px rgb(35 23 84 / 3%);
+    box-shadow: 0 8px 26px rgb(35 23 84 / 4%);
     color: inherit;
     text-decoration: none;
     transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
@@ -284,10 +392,94 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     align-items: center;
     justify-content: center;
     min-width: 0;
-    min-height: 176px;
+    min-height: 200px;
     overflow: hidden;
-    border-radius: 12px;
-    background: linear-gradient(140deg, #f8f6ff, #eeebf7);
+    border-radius: 14px;
+    background: linear-gradient(140deg, #f5f2ff, #e8e2ff);
+  }
+
+  .preview-board {
+    width: calc(100% - 1.1rem);
+    padding: 0.9rem;
+    border: 1px solid rgb(255 255 255 / 85%);
+    border-radius: 13px;
+    background: rgb(255 255 255 / 90%);
+    box-shadow: 0 10px 24px rgb(47 31 108 / 9%);
+  }
+
+  .preview-board__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #827c96;
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .preview-board__spark {
+    display: grid;
+    width: 1.45rem;
+    height: 1.45rem;
+    place-items: center;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #6048dc;
+    font-size: 0.85rem;
+  }
+
+  .preview-board__title {
+    display: block;
+    margin: 0.7rem 0;
+    color: #28243b;
+    font-size: 0.8rem;
+  }
+
+  .preview-steps {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .preview-step {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+    padding: 0.44rem 0.55rem;
+    border: 1px solid #eeebf5;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .preview-step > span {
+    color: #8d84b0;
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+
+  .preview-step > strong {
+    overflow: hidden;
+    color: #484456;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .preview-step > i {
+    margin-left: auto;
+    color: #6048dc;
+    font-size: 0.7rem;
+    font-style: normal;
+  }
+
+  .preview-board__foot {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+    color: #827c96;
+    font-size: 0.57rem;
   }
 
   .dashboard {
@@ -570,8 +762,8 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     margin-bottom: 0.55rem;
     padding: 0.23rem 0.6rem;
     border-radius: 999px;
-    background: #f0eaff;
-    color: #4b20ed;
+    background: #f0edff;
+    color: #5138d6;
     font-size: 0.65rem;
     font-weight: 600;
   }
@@ -590,7 +782,7 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
   .project-copy h2 {
     margin-bottom: 0.5rem;
     color: #171522;
-    font-size: 1.05rem;
+    font-size: 1.12rem;
     line-height: 1.25;
     letter-spacing: -0.035em;
   }
@@ -598,7 +790,7 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
   .project-copy > p {
     margin-bottom: 0.65rem;
     color: #454252;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     line-height: 1.55;
   }
 
@@ -622,8 +814,8 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    color: #3915db;
-    font-size: 0.76rem;
+    color: #5138d6;
+    font-size: 0.8rem;
     font-weight: 600;
   }
 
@@ -643,7 +835,7 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     margin-top: 1.8rem;
     padding: 1.3rem 2.2rem;
     border-radius: 18px;
-    background: linear-gradient(110deg, #5428e9, #8147f5);
+    background: linear-gradient(110deg, #3925b8, #654de8 72%, #7865ed);
     color: white;
   }
 
@@ -710,7 +902,12 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     }
 
     .hero-art {
-      max-height: 220px;
+      max-height: 320px;
+      min-height: 265px;
+    }
+
+    .signal-dashboard {
+      min-height: 265px;
     }
 
     .project-grid {
@@ -724,7 +921,7 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
     }
 
     .project-preview {
-      min-height: 160px;
+      min-height: 190px;
     }
 
     .project-copy h2 {
@@ -753,12 +950,50 @@ const filters = ['All Work', 'SEO Operations', 'Off-Page SEO', 'AI Search (GEO)'
   }
 
   @media (max-width: 420px) {
+    .work-page {
+      padding-inline: 0.75rem;
+    }
+
+    .work-hero h1 {
+      font-size: 2.1rem;
+    }
+
     .project-card {
       grid-template-columns: 1fr;
     }
 
     .project-preview {
       min-height: 190px;
+    }
+
+    .project-copy {
+      padding: 0.25rem 0.25rem 0.5rem;
+    }
+
+    .project-metrics {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .coming-soon {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .coming-soon > div:last-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .card-action span {
+      transition: none;
+    }
+
+    .project-card:hover {
+      transform: none;
     }
   }
 </style>
