@@ -13,12 +13,12 @@ const isActive = (href: string) =>
     <small>SEO & AI Search Strategist</small>
   </div>
 </a>
-    <nav class="nav-links">
-      <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
-      <a href="/about" class={isActive("/about") ? "active" : ""}>About</a>
-      <a href="/work" class={isActive("/work") ? "active" : ""}>Work</a>
-      <a href="/blog/" class={isActive("/blog") ? "active" : ""}>Blog</a>
-      <a href="/contact" class={isActive("/contact") ? "active" : ""}>Contact</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/" class={isActive("/") ? "active" : ""} aria-current={isActive("/") ? "page" : undefined}>Home</a>
+      <a href="/about" class={isActive("/about") ? "active" : ""} aria-current={isActive("/about") ? "page" : undefined}>About</a>
+      <a href="/work" class={isActive("/work") ? "active" : ""} aria-current={isActive("/work") ? "page" : undefined}>Work</a>
+      <a href="/blog/" class={isActive("/blog") ? "active" : ""} aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
+      <a href="/contact" class={isActive("/contact") ? "active" : ""} aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
     </nav>
     <a href="/contact" class="nav-cta">Discuss an opportunity <span aria-hidden="true">↗</span></a>
     <button
@@ -32,11 +32,11 @@ const isActive = (href: string) =>
     </button>
   </div>
   <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
-    <a href="/" class={isActive("/") ? "active" : ""}>Home</a>
-    <a href="/about" class={isActive("/about") ? "active" : ""}>About</a>
-    <a href="/work" class={isActive("/work") ? "active" : ""}>Work</a>
-    <a href="/blog/" class={isActive("/blog") ? "active" : ""}>Blog</a>
-    <a href="/contact" class={isActive("/contact") ? "active" : ""}>Contact</a>
+    <a href="/" class={isActive("/") ? "active" : ""} aria-current={isActive("/") ? "page" : undefined}>Home</a>
+    <a href="/about" class={isActive("/about") ? "active" : ""} aria-current={isActive("/about") ? "page" : undefined}>About</a>
+    <a href="/work" class={isActive("/work") ? "active" : ""} aria-current={isActive("/work") ? "page" : undefined}>Work</a>
+    <a href="/blog/" class={isActive("/blog") ? "active" : ""} aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
+    <a href="/contact" class={isActive("/contact") ? "active" : ""} aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
     <a href="/contact" class="mobile-nav-cta">Discuss an opportunity <span aria-hidden="true">↗</span></a>
   </nav>
 </header>

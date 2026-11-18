@@ -11,7 +11,7 @@ const featuredPost = posts[0];
 
 <Layout
   title="Abhishek Parpala | SEO & AI Search Strategist"
-  description="Helping B2B SaaS Get More Customers from Google & AI Search"
+  description="SEO professional with hands-on experience in content, off-page authority, and organic search, open to SEO and search marketing opportunities."
 >
   
 <!-- This page builds its own hero below, so we cancel Layout's default
@@ -86,7 +86,7 @@ const featuredPost = posts[0];
           </div>
 
           <aside class="hero-portrait" aria-label="About Abhishek">
-            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" />
+            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" fetchpriority="high" />
           </aside>
         </div>
     
@@ -96,9 +96,9 @@ const featuredPost = posts[0];
 
     <section class="services" id="services">
       <span class="eyebrow">WHAT I WORK ON</span>
-      <h2>Helping businesses grow through <span class="highlight">SEO & AI Search.</span></h2>
+      <h2>Building visibility through <span class="highlight">SEO & AI Search.</span></h2>
       <p class="services-intro">
-        I work at the intersection of SEO, content, and the evolving world of AI search.
+        I bring practical experience across organic growth, content, authority, and the evolving world of AI search.
       </p>
       <div class="service-grid">
         <div class="service-card">
@@ -160,7 +160,7 @@ const featuredPost = posts[0];
         >
           {featuredPost.data.image && (
             <div class="featured-post-image">
-              <img src={featuredPost.data.image} alt={featuredPost.data.title} />
+              <img src={featuredPost.data.image} alt={featuredPost.data.title} loading="lazy" />
             </div>
           )}
           <div class="featured-post-copy">
@@ -188,7 +188,7 @@ const featuredPost = posts[0];
           <h2>Hi, I'm Abhishek Parpala.</h2>
           <p class="about-tagline">SEO &amp; AI Search strategist focused on helping B2B SaaS brands get discovered.</p>
           <div class="about-image">
-            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" />
+            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" loading="lazy" />
           </div>
         </div>
         <div class="about-copy">
@@ -214,55 +214,6 @@ const featuredPost = posts[0];
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="logo">
-            <div class="logo-text">
-              <strong>Abhishek Parpala</strong>
-              <br>
-              <small>SEO & AI Search Strategist for B2B SaaS</small>
-            </div>
-          </div>
-
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/abhishekparpala/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21h-4V9Z"/>
-          </svg>
-        </a>
-        <a href="https://www.youtube.com/@abhishekparpala" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.5 7.2a2.9 2.9 0 0 0-2.05-2.06C18.6 4.6 12 4.6 12 4.6s-6.6 0-8.45.54A2.9 2.9 0 0 0 1.5 7.2 30.6 30.6 0 0 0 1 12a30.6 30.6 0 0 0 .5 4.8 2.9 2.9 0 0 0 2.05 2.06C5.4 19.4 12 19.4 12 19.4s6.6 0 8.45-.54A2.9 2.9 0 0 0 22.5 16.8 30.6 30.6 0 0 0 23 12a30.6 30.6 0 0 0-.5-4.8ZM9.75 15.3V8.7L15.5 12l-5.75 3.3Z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/abhishek-parpala" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.15c-3.23.7-3.91-1.37-3.91-1.37-.52-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.58-.29-5.3-1.29-5.3-5.75 0-1.27.45-2.31 1.2-3.13-.12-.29-.52-1.48.11-3.08 0 0 .98-.31 3.16 1.19a10.97 10.97 0 0 1 5.76 0c2.19-1.5 3.16-1.19 3.16-1.19.63 1.6.23 2.79.11 3.08.75.82 1.2 1.86 1.2 3.13 0 4.47-2.72 5.46-5.31 5.75.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="/work">Work</a>
-          <a href="/blog/">Blog</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="/terms-and-conditions">Terms and Conditions</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/disclaimer">Disclaimer</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="mailto:abhishekparpala@gmail.com">abhishekparpala@gmail.com</a>
-        </div>
-      </div>
-      <p class="footer-bottom">© 2026 Abhishek Parpala. All rights reserved.</p>
-    </footer>
   </main>
 </Layout>
 
@@ -1030,73 +981,9 @@ const featuredPost = posts[0];
     margin-top: 1rem;
   }
 
-  .footer {
-  border-top: 1px solid #eeeaf5;
-  padding: 3rem 0 1.5rem;
-  margin-top: 2rem;
-}
-
-.social-links {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 8px;
-  background: rgba(75, 60, 240, 0.08);
-  color: #4b3cf0;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.social-links a:hover {
-  background: #4b3cf0;
-  color: white;
-}
-
-.social-links svg {
-  width: 1.1rem;
-  height: 1.1rem;
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 2rem;
-}
-
-.footer-col h4 {
-  font-size: 0.85rem;
-  margin-bottom: 0.8rem;
-}
-
-.footer-col a {
-  display: block;
-  font-size: 0.85rem;
-  color: #666;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-}
-
-.footer-bottom {
-  text-align: center;
-  font-size: 0.8rem;
-  color: #999;
-  margin-top: 2rem;
-  border-top: 1px solid #eee;
-  padding-top: 1.5rem;
-}
   @media (max-width: 900px) {
     .stats, .service-grid, .process-grid, .testimonial-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-top {
-      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -1218,13 +1105,8 @@ const featuredPost = posts[0];
     margin-bottom: 1.75rem;
   }
 
-  .service-grid,
-  .footer-top {
+  .service-grid {
     grid-template-columns: 1fr;
-  }
-
-  .footer-top {
-    gap: 1.5rem;
   }
 
   .hero-actions {
@@ -1267,13 +1149,6 @@ const featuredPost = posts[0];
       grid-template-columns: 1fr;
     }
 
-    .footer {
-      padding-inline: 1rem;
-    }
-
-    .footer-col {
-      text-align: left;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

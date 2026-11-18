@@ -27,6 +27,7 @@ const posts = (await getCollection('blog')).sort(
               <img
                 src={post.data.image}
                 alt={post.data.title}
+                loading="lazy"
               />
             </div>
           )}

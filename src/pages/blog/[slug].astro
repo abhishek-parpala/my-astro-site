@@ -14,7 +14,13 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} | Abhishek Parpala`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} | Abhishek Parpala`}
+  description={post.data.description}
+  socialType="article"
+  socialImage={post.data.image}
+  socialImageAlt={post.data.title}
+>
   <Fragment slot="hero"></Fragment>
 
   <article class="post">
