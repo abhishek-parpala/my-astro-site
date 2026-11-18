@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import projects from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout
+  title={`${project.title} | Abhishek Parpala`}
+  description={project.description}
+>
+  <Fragment slot="hero"></Fragment>
+
+  <main class="case-study">
+    <a class="back-link" href="/work">← Back to all work</a>
+
+    <article>
+      <header class="case-hero">
+        <div class="labels">
+          <span class="category">{project.category}</span>
+          <span class="practice">Practice Project</span>
+        </div>
+        <h1>{project.title}</h1>
+        <p class="intro">{project.description}</p>
+        <ul class="tags" aria-label="Project topics">
+          {project.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </header>
+
+      <section class="project-overview" aria-labelledby="overview-heading">
+        <span class="eyebrow">PROJECT OVERVIEW</span>
+        <h2 id="overview-heading">The approach</h2>
+        <p>{project.detail}</p>
+      </section>
+
+      <aside class="practice-note">
+        <strong>Practice project</strong>
+        <p>This is a self-initiated portfolio example. Any dashboard visuals or figures are illustrative and are not client results.</p>
+      </aside>
+
+      <section class="case-cta" aria-labelledby="case-cta-heading">
+        <div>
+          <h2 id="case-cta-heading">Have a similar challenge?</h2>
+          <p>Get in touch to talk through your SEO and AI search goals.</p>
+        </div>
+        <a href="/contact">Contact me →</a>
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .case-study {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    color: #4b20ed;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .case-hero {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e9e7ef;
+  }
+
+  .labels,
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .category,
+  .practice,
+  .tags li {
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .category,
+  .tags li {
+    background: #f0eaff;
+    color: #4b20ed;
+  }
+
+  .practice {
+    background: #f3f2f6;
+    color: #514e5e;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 760px;
+    margin: 1.2rem 0 0.8rem;
+    color: #11101c;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .intro {
+    max-width: 700px;
+    margin-bottom: 1.25rem;
+    color: #4d4a5c;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .project-overview {
+    max-width: 720px;
+    padding: 2.5rem 0;
+  }
+
+  .eyebrow {
+    color: #4b20ed;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .project-overview h2,
+  .case-cta h2 {
+    margin: 0.6rem 0;
+    color: #171522;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.2;
+  }
+
+  .project-overview p,
+  .case-cta p {
+    margin-bottom: 0;
+    color: #514e5e;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .practice-note {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #e9e2ff;
+    border-radius: 14px;
+    background: #faf8ff;
+  }
+
+  .practice-note strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #3d20b0;
+  }
+
+  .practice-note p {
+    margin: 0;
+    color: #514e5e;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .case-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding: 1.6rem 1.8rem;
+    border-radius: 16px;
+    background: linear-gradient(110deg, #5428e9, #8147f5);
+    color: white;
+  }
+
+  .case-cta h2,
+  .case-cta p {
+    color: white;
+  }
+
+  .case-cta h2 {
+    margin-top: 0;
+    font-size: 1.35rem;
+  }
+
+  .case-cta p {
+    font-size: 0.9rem;
+  }
+
+  .case-cta a {
+    flex: 0 0 auto;
+    padding: 0.7rem 1.1rem;
+    border-radius: 999px;
+    background: white;
+    color: #4b20ed;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .case-study {
+      padding: 1.5rem 1rem 3.5rem;
+    }
+
+    .back-link {
+      margin-bottom: 1.8rem;
+    }
+
+    .case-cta {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 1.4rem;
+    }
+
+    .case-cta a {
+      align-self: flex-start;
+    }
+  }
+</style>
