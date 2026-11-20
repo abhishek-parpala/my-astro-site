@@ -85,14 +85,38 @@ const featuredPost = posts[0];
             </div>
           </div>
 
-          <aside class="hero-portrait" aria-label="About Abhishek">
-            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" fetchpriority="high" />
-          </aside>
         </div>
     
 
 </section>
 
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-intro">
+          <span class="eyebrow">ABOUT ME</span>
+          <h2>Hi, I'm Abhishek Parpala.</h2>
+          <div class="about-image">
+            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-copy">
+          <p>
+            I'm an SEO professional with a hands-on background in organic search, content operations, and off-page SEO.
+          </p>
+          <p>
+            I've been working in SEO since 2022, gaining practical experience across different aspects of search marketing.
+          </p>
+          <p>
+            Over the years, my interest has grown beyond traditional rankings. I'm particularly interested in how search is evolving, how AI is changing discovery, and what businesses can do to remain visible.
+          </p>
+          <p>Today, I focus on combining SEO fundamentals with content strategy, authority building, and AI Search to create stronger organic visibility.</p>
+          <p>I believe good SEO starts with understanding people, not just search engines.</p>
+          <div class="about-cta">
+            <a href="/about">Learn more about me</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="services" id="services">
       <span class="eyebrow">WHAT I WORK ON</span>
@@ -181,34 +205,6 @@ const featuredPost = posts[0];
       </section>
     )}
 
-    <section class="about" id="about">
-      <div class="about-content">
-        <div class="about-intro">
-          <span class="eyebrow">ABOUT ME</span>
-          <h2>Hi, I'm Abhishek Parpala.</h2>
-          <div class="about-image">
-            <img src="/images/abhishek-about.png" alt="Abhishek Parpala" loading="lazy" />
-          </div>
-        </div>
-        <div class="about-copy">
-          <p>
-            I'm an SEO professional with a hands-on background in organic search, content operations, and off-page SEO.
-          </p>
-          <p>
-            I've been working in SEO since 2022, gaining practical experience across different aspects of search marketing.
-          </p>
-          <p>
-            Over the years, my interest has grown beyond traditional rankings. I'm particularly interested in how search is evolving, how AI is changing discovery, and what businesses can do to remain visible.
-          </p>
-          <p>Today, I focus on combining SEO fundamentals with content strategy, authority building, and AI Search to create stronger organic visibility.</p>
-          <p>I believe good SEO starts with understanding people, not just search engines.</p>
-          <div class="about-cta">
-            <a href="/about">Learn more about me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 </Layout>
 
@@ -225,7 +221,7 @@ const featuredPost = posts[0];
   width: 100vw;
   margin-left: -50vw;
  overflow: hidden;
- padding: 5.5rem 0 5rem;
+ padding: 4.5rem 0 5rem;
  border-bottom: 1px solid #e8e5f4;
  background:
    radial-gradient(ellipse at 82% 25%, rgb(112 84 245 / 10%), transparent 34%),
@@ -233,17 +229,18 @@ const featuredPost = posts[0];
 }
 
 .hero-content {
- display: grid;
- grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.72fr);
- align-items: center;
- gap: clamp(2rem, 5vw, 4.5rem);
+ max-width: 900px;
  width: calc(100% - 3rem);
- max-width: 1120px;
-  margin: 0 auto;
+ margin: 0 auto;
 }
 
 .hero-copy {
  min-width: 0;
+ max-width: 900px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
 }
 
 .hero-copy > * {
@@ -267,10 +264,6 @@ const featuredPost = posts[0];
  animation-delay: 320ms;
 }
 
-.hero-portrait {
- animation: hero-portrait-enter 760ms cubic-bezier(0.2, 0.7, 0.25, 1) 140ms both;
-}
-
 @keyframes hero-content-enter {
  from {
    opacity: 0;
@@ -280,18 +273,6 @@ const featuredPost = posts[0];
  to {
    opacity: 1;
    transform: translateY(0);
- }
-}
-
-@keyframes hero-portrait-enter {
- from {
-   opacity: 0;
-   transform: translateX(16px) scale(0.98);
- }
-
- to {
-   opacity: 1;
-   transform: translateX(0) scale(1);
  }
 }
 
@@ -323,13 +304,14 @@ const featuredPost = posts[0];
 }
 
 .hero h1 {
- max-width: 720px;
- margin: 0 0 1.15rem;
- font-size: clamp(3rem, 5.7vw, 4.65rem);
-  font-weight: 700;
- line-height: 1.04;
+ max-width: 10.5em;
+ margin: 0 auto 1.15rem;
+ font-size: clamp(2rem, 5.5vw, 5rem);
+ font-weight: 700;
+ line-height: 1.05;
  letter-spacing: -0.06em;
-  text-wrap: balance;
+ text-align: center;
+ text-wrap: balance;
 }
 
 .highlight {
@@ -338,7 +320,7 @@ const featuredPost = posts[0];
 
 .subheadline {
  max-width: 610px;
- margin: 0 0 1.6rem;
+ margin: 0 auto 1.6rem;
  color: #5f5b6d;
  font-size: 1.05rem;
  line-height: 1.75;
@@ -347,6 +329,7 @@ const featuredPost = posts[0];
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
 }
 
@@ -403,38 +386,6 @@ const featuredPost = posts[0];
   width: 100%;
   max-width: 380px;
   margin: 1.35rem 0 1.4rem;
-}
-
-.hero-portrait {
-  position: relative;
-  min-width: 0;
-  max-width: 390px;
-  justify-self: end;
-  padding: 0.7rem;
-  border: 1px solid rgb(255 255 255 / 75%);
-  border-radius: 28px;
-  background: linear-gradient(145deg, #f1edff, #d9d1ff 55%, #c1b6f8);
-  box-shadow: 0 28px 70px rgb(51 36 123 / 16%);
-}
-
-.hero-portrait::before {
-  position: absolute;
-  top: -1rem;
-  right: -1rem;
-  width: 5.5rem;
-  height: 5.5rem;
-  border: 1px solid rgb(91 66 232 / 18%);
-  border-radius: 50%;
-  content: '';
-}
-
-.hero-portrait > img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 0.88;
-  border-radius: 21px;
-  object-fit: cover;
-  object-position: center 32%;
 }
 
 .platform-rotator {
@@ -993,15 +944,7 @@ const featuredPost = posts[0];
   }
 
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
     text-align: center;
-  }
-
-  .hero-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .hero-kicker {
@@ -1010,11 +953,7 @@ const featuredPost = posts[0];
   }
 
   .hero h1 {
-    font-size: 2.5rem;
     line-height: 1.05;
-    text-align: center;
-    text-wrap: balance;
-    margin-inline: auto;
   }
 
   .subheadline {
@@ -1027,11 +966,6 @@ const featuredPost = posts[0];
 
   .subheadline {
     margin-bottom: 1.5rem;
-  }
-
-  .hero-portrait {
-    width: min(74%, 290px);
-    justify-self: center;
   }
 
   /* ABOUT MOBILE */
@@ -1123,11 +1057,7 @@ const featuredPost = posts[0];
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 10vw, 2.25rem);
       line-height: 1.05;
-      text-align: center;
-      text-wrap: balance;
-      margin-inline: auto;
     }
 
     .hero-actions {
@@ -1140,10 +1070,6 @@ const featuredPost = posts[0];
       max-width: 320px;
     }
 
-    .hero-portrait {
-      width: min(82%, 280px);
-    }
-
     .stats, .service-grid, .process-grid, .testimonial-grid {
       grid-template-columns: 1fr;
     }
@@ -1151,8 +1077,7 @@ const featuredPost = posts[0];
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-copy > *,
-    .hero-portrait {
+    .hero-copy > * {
       animation: none;
       opacity: 1;
       transform: none;
