@@ -23,12 +23,12 @@ const featuredPost = posts[0];
     <section class="hero" id="home">
         <div class="hero-content">
           <div class="hero-copy">
-            <p class="hero-kicker"><span></span> SEO &amp; AI Search Specialist <b>·</b> Organic Growth</p>
+            <p class="hero-kicker"><span></span> SEO &amp; AI Search <b>·</b> Organic Growth</p>
             <h1>
               Get discovered wherever your customers
               <span class="highlight"> search.</span>
             </h1>
-            <div class="hero-visual" aria-label="Search platforms">
+            <div class="hero-visual" aria-label="Search and discovery platforms">
               <div class="platform-rotator" id="platform-rotator">
 
                 <div class="platform-badge is-active">
@@ -47,7 +47,10 @@ const featuredPost = posts[0];
 
                 <div class="platform-badge">
                   <span class="badge-icon">
-                    <img src="/icons/google-ai-overviews.png" alt="" />
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                      <rect width="32" height="32" rx="8" fill="#edf6ff" />
+                      <path d="M16 3c2.2 7.2 5.8 10.8 13 13-7.2 2.2-10.8 5.8-13 13C13.8 21.8 10.2 18.2 3 16 10.2 13.8 13.8 10.2 16 3Z" fill="#4285f4" />
+                    </svg>
                   </span>
                   <span>Google AI Overviews</span>
                 </div>
@@ -66,12 +69,49 @@ const featuredPost = posts[0];
                   <span>Gemini</span>
                 </div>
 
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="11" fill="#FF4500" />
+                      <path d="M12 6.6c-3.4 0-6.1 1.9-6.1 4.4v2.1c0 2.5 2.7 4.5 6.1 4.5s6.1-2 6.1-4.5V11c0-2.5-2.7-4.4-6.1-4.4Z" fill="white" />
+                      <path d="m12 6.7 1-3.1 3 .7" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      <circle cx="16.3" cy="4.3" r="1.3" fill="white" />
+                      <circle cx="9.5" cy="11.5" r=".8" fill="#FF4500" />
+                      <circle cx="14.5" cy="11.5" r=".8" fill="#FF4500" />
+                      <path d="M9.6 14c1.4 1.1 3.4 1.1 4.8 0" stroke="#FF4500" stroke-width="1.1" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  <span>Reddit</span>
+                </div>
+
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="google-mark-gradient" x1="0" x2="1" y1="0" y2="1">
+                          <stop offset="0%" stop-color="#4285F4" />
+                          <stop offset="35%" stop-color="#34A853" />
+                          <stop offset="65%" stop-color="#FBBC05" />
+                          <stop offset="100%" stop-color="#EA4335" />
+                        </linearGradient>
+                      </defs>
+                      <text x="12" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="url(#google-mark-gradient)">G</text>
+                    </svg>
+                  </span>
+                  <span>Google</span>
+                </div>
+
+                <div class="platform-badge">
+                  <span class="badge-icon">
+                    <svg viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true">
+                      <path d="M22.5 7.2a2.9 2.9 0 0 0-2.05-2.06C18.6 4.6 12 4.6 12 4.6s-6.6 0-8.45.54A2.9 2.9 0 0 0 1.5 7.2 30.6 30.6 0 0 0 1 12a30.6 30.6 0 0 0 .5 4.8 2.9 2.9 0 0 0 2.05 2.06C5.4 19.4 12 19.4 12 19.4s6.6 0 8.45-.54A2.9 2.9 0 0 0 22.5 16.8 30.6 30.6 0 0 0 23 12a30.6 30.6 0 0 0-.5-4.8ZM9.75 15.3V8.7L15.5 12l-5.75 3.3Z" />
+                    </svg>
+                  </span>
+                  <span>YouTube</span>
+                </div>
+
               </div>
             </div>
-
-            <p class="subheadline">
-              SEO specialist with hands-on experience in content, off-page SEO, and organic search. Focused on building search visibility through thoughtful strategy and execution.
-            </p>
 
             <div class="hero-actions">
               <a href="/work" class="cta-primary">
@@ -199,11 +239,19 @@ const featuredPost = posts[0];
             <span class="read-article-link">Read article <span aria-hidden="true">↗</span></span>
           </div>
         </a>
-        <p class="newsletter-note">
-          For more SEO &amp; AI Search notes, <a href="https://abhishekparpala.substack.com/" target="_blank" rel="noopener noreferrer">subscribe to the newsletter</a>.
-        </p>
       </section>
     )}
+
+    <section class="newsletter-section" aria-labelledby="newsletter-title">
+      <div class="newsletter-copy">
+        <span class="newsletter-eyebrow">THE NEWSLETTER</span>
+        <h2 id="newsletter-title">SEO &amp; AI Search, in your inbox.</h2>
+        <p>Practical notes on search, content, and AI discovery.</p>
+      </div>
+      <a class="newsletter-link" href="https://abhishekparpala.substack.com/" target="_blank" rel="noopener noreferrer">
+        Subscribe on Substack <span aria-hidden="true">↗</span>
+      </a>
+    </section>
 
   </main>
 </Layout>
@@ -305,11 +353,11 @@ const featuredPost = posts[0];
 
 .hero h1 {
  max-width: 10.5em;
- margin: 0 auto 1.15rem;
+ margin: 0 auto 1.05rem;
  font-size: clamp(2rem, 5.5vw, 5rem);
  font-weight: 700;
- line-height: 1.05;
- letter-spacing: -0.06em;
+ line-height: 1.14;
+ letter-spacing: -0.05em;
  text-align: center;
  text-wrap: balance;
 }
@@ -339,7 +387,7 @@ const featuredPost = posts[0];
   justify-content: center;
   gap: 0.5rem;
   min-height: 50px;
-  padding: 0.8rem 1.15rem;
+  padding: 0.8rem 0.85rem;
   border: 1px solid transparent;
   border-radius: 13px;
   text-decoration: none;
@@ -385,7 +433,7 @@ const featuredPost = posts[0];
 .hero-visual {
   width: 100%;
   max-width: 380px;
-  margin: 1.35rem 0 1.4rem;
+  margin: 0.55rem 0 1.75rem;
 }
 
 .platform-rotator {
@@ -441,6 +489,12 @@ const featuredPost = posts[0];
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.badge-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
   /* --- Rotating platform badge (true crossfade, never blank) --- */
@@ -585,7 +639,7 @@ const featuredPost = posts[0];
 
   .featured-post-card:focus-visible,
   .all-posts-link:focus-visible,
-  .newsletter-note a:focus-visible {
+  .newsletter-link:focus-visible {
     outline: 3px solid #8a72ff;
     outline-offset: 3px;
   }
@@ -656,23 +710,68 @@ const featuredPost = posts[0];
     transform: translate(2px, -2px);
   }
 
-  .newsletter-note {
-    margin: 1rem 0 0;
-    color: #777285;
-    font-size: 0.88rem;
-    text-align: right;
-  }
-
-  .newsletter-note a {
-    color: #5138d6;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .newsletter-note a:hover,
   .all-posts-link:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+
+  .newsletter-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid #e5e0f6;
+    border-radius: 22px;
+    background:
+      radial-gradient(ellipse at 90% 15%, rgb(112 84 245 / 10%), transparent 40%),
+      #fbfaff;
+  }
+
+  .newsletter-copy {
+    max-width: 620px;
+  }
+
+  .newsletter-eyebrow {
+    color: #4b3cf0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .newsletter-copy h2 {
+    margin: 0.55rem 0 0.45rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+
+  .newsletter-copy p {
+    margin: 0;
+    color: #625e70;
+    line-height: 1.6;
+  }
+
+  .newsletter-link {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+    background: #19162a;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgb(30 24 65 / 14%);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .newsletter-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgb(30 24 65 / 18%);
   }
 
   .services .eyebrow {
@@ -961,7 +1060,7 @@ const featuredPost = posts[0];
   }
 
   .hero-visual {
-    margin: 1.25rem 0 1.25rem;
+    margin: 0.65rem 0 1.6rem;
   }
 
   .subheadline {
@@ -1025,8 +1124,15 @@ const featuredPost = posts[0];
     aspect-ratio: 16 / 9;
   }
 
-  .newsletter-note {
-    text-align: left;
+  .newsletter-section {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .newsletter-link {
+    width: 100%;
   }
 
   .services h2 {
